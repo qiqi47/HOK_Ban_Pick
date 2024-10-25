@@ -1,0 +1,293 @@
+import { useState, useEffect } from 'react';
+import HeroList from './HeroList';
+
+const BanPickPanel = () => {
+  const [userTeam, setUserTeam] = useState('blue');
+  const [currentPhase, setCurrentPhase] = useState(0);
+  const [selectedRole, setSelectedRole] = useState('all');
+  const [selectedHeroes, setSelectedHeroes] = useState({
+    blueBans: [],
+    redBans: [],
+    bluePicks: [],
+    redPicks: [],
+  });
+
+  const phases = [
+    { team: 'blue', action: 'ban', text: 'Blue Ban 1' },
+    { team: 'red', action: 'ban', text: 'Red Ban 1' },
+    { team: 'blue', action: 'ban', text: 'Blue Ban 2' },
+    { team: 'red', action: 'ban', text: 'Red Ban 2' },
+    { team: 'blue', action: 'pick', text: 'Blue Pick 1' },
+    { team: 'red', action: 'pick', text: 'Red Pick 1' },
+    { team: 'red', action: 'pick', text: 'Red Pick 2' },
+    { team: 'blue', action: 'pick', text: 'Blue Pick 2' },
+    { team: 'blue', action: 'pick', text: 'Blue Pick 3' },
+    { team: 'red', action: 'pick', text: 'Red Pick 3' },
+    { team: 'red', action: 'ban', text: 'Red Ban 3' },
+    { team: 'blue', action: 'ban', text: 'Blue Ban 3' },
+    { team: 'red', action: 'ban', text: 'Red Ban 4' },
+    { team: 'blue', action: 'ban', text: 'Blue Ban 4' },
+    { team: 'red', action: 'pick', text: 'Red Pick 4' },
+    { team: 'blue', action: 'pick', text: 'Blue Pick 4' },
+    { team: 'blue', action: 'pick', text: 'Blue Pick 5' },
+    { team: 'red', action: 'pick', text: 'Red Pick 5' },
+  ];
+
+  const roles = [
+    { id: 'Jungling', name: '打野', englishName: 'Jungling' },
+    { id: 'Clash Lane', name: '对抗路', englishName: 'Clash Lane' },
+    { id: 'Mid Lane', name: '中路', englishName: 'Mid Lane' },
+    { id: 'Roaming', name: '游走', englishName: 'Roaming' },
+    { id: 'Farm Lane', name: '发育路', englishName: 'Farm Lane' },
+  ];
+
+  // Sample HeroList data with roles
+
+  useEffect(() => {
+    if (currentPhase < phases.length) {
+      setUserTeam(phases[currentPhase].team);
+    }
+  }, [currentPhase]);
+
+  const handleChampionClick = (championId) => {
+    if (currentPhase >= phases.length) return;
+
+    const currentAction = phases[currentPhase];
+    const { team, action } = currentAction;
+
+    setSelectedHeroes(prev => {
+      const key = `${team}${action === 'ban' ? 'Bans' : 'Picks'}`;
+      return {
+        ...prev,
+        [key]: [...prev[key], championId]
+      };
+    });
+
+    setCurrentPhase(prev => prev + 1);
+  };
+
+  const resetDraft = () => {
+    setCurrentPhase(0);
+    setSelectedHeroes({
+      blueBans: [],
+      redBans: [],
+      bluePicks: [],
+      redPicks: [],
+    });
+    setSelectedRole('all');
+  };
+
+  const getHeroById = (id:Number) => HeroList.find(hero => hero.id === id);
+
+  const isChampionSelected = (championId) => {
+    const allSelected = [
+      ...selectedHeroes.blueBans,
+      ...selectedHeroes.redBans,
+      ...selectedHeroes.bluePicks,
+      ...selectedHeroes.redPicks,
+    ];
+    return allSelected.includes(championId);
+  };
+
+  const getCurrentActionText = () => {
+    if (currentPhase >= phases.length) return 'Draft Complete';
+    return phases[currentPhase].text;
+  };
+
+  const isUserTurn = () => {
+    if (currentPhase >= phases.length) return false;
+    return phases[currentPhase].team === userTeam;
+  };
+
+  const getBackgroundColor = () => {
+    if (currentPhase >= phases.length) return 'from-gray-900 to-gray-800';
+    return phases[currentPhase].team === 'blue' 
+      ? 'from-blue-900/50 to-blue-800/50'
+      : 'from-red-900/50 to-red-800/50';
+  };
+
+  const filteredHeroes = HeroList.filter(item => 
+    selectedRole === 'all' || item.occupation === selectedRole || item.altOccupation === selectedRole
+  );
+
+  return (
+    <div className={`min-h-screen bg-gradient-to-b ${getBackgroundColor()} p-4 transition-all duration-500 w-[100vw] flex flex-row`}>
+<div className='w-[80%]'>
+      {/* Header Controls */}
+      <div className="flex justify-between items-center mb-8">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setUserTeam('blue')}
+            className={`px-4 py-2 rounded transition-colors duration-300 ${
+              userTeam === 'blue' ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'
+            }`}
+          >
+            Blue Team
+          </button>
+          <button
+            onClick={() => setUserTeam('red')}
+            className={`px-4 py-2 rounded transition-colors duration-300 ${
+              userTeam === 'red' ? 'bg-red-500 text-white' : 'bg-gray-700 text-gray-300'
+            }`}
+          >
+            Red Team
+          </button>
+        </div>
+        <div className="text-white text-xl font-bold">
+          {getCurrentActionText()}
+        </div>
+        <button
+          onClick={resetDraft}
+          className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded transition-colors duration-300"
+        >
+          Reset Draft
+        </button>
+      </div>
+
+      {/* Role Filter Buttons */}
+      <div className="flex justify-center gap-4 mb-8">
+        {roles.map(role => (
+          <button
+            key={role.id}
+            onClick={() => setSelectedRole(role.id)}
+            className={`px-4 py-2 rounded transition-colors duration-300 ${
+              selectedRole === role.id 
+                ? 'bg-purple-500 text-white' 
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+          >
+            {role.name}
+          </button>
+        ))}
+      </div>
+
+      {/* Main Layout */}
+      <div className="flex gap-4">
+        {/* Blue Team Side Panel */}
+        <div className="w-32 space-y-4">
+          <div className="bg-blue-900/30 p-4 rounded">
+            <h3 className="text-blue-400 font-bold mb-4">Blue Team</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-red-500 font-bold mb-2">Bans</h4>
+                <div className="grid grid-cols-3 gap-2">
+                 {selectedHeroes.blueBans.map(id => {
+          const hero = getHeroById(id);
+          return hero && (
+            <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden opacity-50">
+              <img                   src={`/src/assets/heroesImg/${hero.id}.png`} 
+ alt={hero.englishName} className="w-full h-full object-cover" />
+            </div>
+          );
+        })}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-green-500 font-bold mb-2">Picks</h4>
+                <div className="grid gap-2">
+                  {selectedHeroes.bluePicks.map(id => {
+const hero = getHeroById(id);
+return hero && (
+                    <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden">
+                      <img   src={`/src/assets/heroesImg/${hero.id}.png`} alt={hero.englishName} className="w-full h-full object-cover" />
+                    </div> )
+})}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Champion Grid */}
+        <div className="flex-1">
+          <div className="grid grid-cols-7 gap-4">
+            {filteredHeroes.map(item => (
+              <div 
+                key={item.id}
+                onClick={() => !isChampionSelected(item.id) && isUserTurn() && handleChampionClick(item.id)}
+                className={`
+                  relative aspect-square rounded-lg overflow-hidden transition-all
+                  ${isChampionSelected(item.id) 
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : isUserTurn() 
+                      ? 'cursor-pointer hover:ring-2 hover:ring-yellow-500 bg-gray-700/50' 
+                      : 'cursor-not-allowed bg-gray-900/50'
+                  }
+                `}
+              >
+                <img 
+                  src={`/src/assets/heroesImg/${item.id}.png`} 
+                  alt={item.chineseName}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 py-1 px-2">
+                   <div className="flex flex-col">
+                    <span className="text-xs text-white font-bold">
+                      {item.chineseName}
+                    </span>
+                    {/* <span className="text-xs text-gray-300">
+                      {roles.find(r => r.id === item.occupation)?.name}
+                    </span> */}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Current Phase Display */}
+          <div className="mt-8 flex justify-center">
+            <div className={`px-6 py-3 rounded-lg ${
+              phases[currentPhase]?.team === 'blue' ? 'bg-blue-900/30' : 'bg-red-900/30'
+            }`}>
+              <span className="text-white font-bold">
+                {currentPhase >= phases.length 
+                  ? 'Draft Complete!' 
+                  : `${isUserTurn() ? 'Your' : 'Opponent\'s'} turn - ${getCurrentActionText()}`}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Red Team Side Panel */}
+        <div className="w-32 space-y-4">
+          <div className="bg-red-900/30 p-4 rounded">
+            <h3 className="text-red-400 font-bold mb-4">Red Team</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-red-500 font-bold mb-2">Bans</h4>
+                <div className="grid grid-cols-3 gap-2">
+                     {selectedHeroes.redBans.map(id => {
+          const hero = getHeroById(id);
+          return hero && (
+            <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden opacity-50">
+              <img                   src={`/src/assets/heroesImg/${hero.id}.png`} 
+ alt={hero.englishName} className="w-full h-full object-cover" />
+            </div>
+          );
+        })}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-green-500 font-bold mb-2">Picks</h4>
+                <div className="grid gap-2">
+                     {selectedHeroes.redPicks.map(id => {
+const hero = getHeroById(id);
+return hero && (
+                    <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden">
+                      <img   src={`/src/assets/heroesImg/${hero.id}.png`} alt={hero.englishName} className="w-full h-full object-cover" />
+                    </div> )
+})}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{/* Recommodation */}
+<div className='w-16 ml-4'></div>
+    </div>
+  );
+};
+
+export default BanPickPanel;
