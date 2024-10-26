@@ -21,7 +21,9 @@
     chineseName: "亚连",
     imageLink: "/commons/images/5/5f/Allain_Hero_Icon.jpg",
     occupation: "Clash Lane",
-    altOccupation: ''
+    altOccupation: '',
+	counter:[39,21],//黄忠，典韦
+	beCountered:[5,60],//被阿离，马可克制
   },
   {
     id: 4,
@@ -37,7 +39,8 @@
     chineseName: "公孙离",
     imageLink: "/commons/images/5/5c/Gong_Sun_Li_Hero_Icon.png",
     occupation: "Farm Lane",
-    altOccupation: ''
+    altOccupation: '',
+beCountered:[25,6]//扁鹊，亚瑟
   },
   {
     id: 6,
@@ -69,7 +72,9 @@
     chineseName: "大司命",
     imageLink: "/commons/images/5/5f/Da_Siming_Hero_Icon.jpg",
     occupation: "Jungling",
-    altOccupation: 'Clash Lane'
+    altOccupation: 'Clash Lane',
+	beCountered:[59,38],//不知火舞,宫本
+	combo:[92]//周瑜
   },
   {
     id: 10,
@@ -93,7 +98,9 @@
     chineseName: "蔡文姬",
     imageLink: "/commons/images/f/f8/Cai_Wenji_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: ''
+    altOccupation: '',
+beCountered:[68], //宫本
+counter:[42,88,76]//克诸葛亮，杨玉环，守约
   },
   {
     id: 13,
@@ -125,7 +132,8 @@
     chineseName: "虞姬",
     imageLink: "/commons/images/1/14/Yu_Ji_Hero_Icon.png",
     occupation: "Farm Lane",
-    altOccupation: ''
+    altOccupation: '',
+combo:[17]//大乔
   },
   {
     id: 17,
@@ -133,7 +141,9 @@
     chineseName: "大乔",
     imageLink: "/commons/images/3/30/Da_Qiao_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: 'Mid Lane'
+    altOccupation: 'Mid Lane',
+combo:[16,30,68]//虞姬，老夫子，宫本
+
   },
   {
     id: 18,
@@ -181,7 +191,8 @@
     chineseName: "朵莉亚",
     imageLink: "/commons/images/4/43/Doria_Hero_Icon.jpg",
     occupation: "Roaming",
-    altOccupation: ''
+    altOccupation: '',
+	combo:[9,26,75,88] //亚连，夏侯，婉儿，杨玉环
   },
   {
     id: 24,
@@ -189,7 +200,8 @@
     chineseName: "东皇太一",
     imageLink: "/commons/images/7/73/East_Emperor_Taiyi_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: ''
+    altOccupation: '',
+	beCountered:[70,26]//哪吒，夏侯
   },
   {
     id: 25,
@@ -197,7 +209,10 @@
     chineseName: "扁鹊",
     imageLink: "/commons/images/2/26/Bian_Que_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ''
+    altOccupation: '',
+	combo:[78,26,9],//孙膑，夏侯,猪八戒
+	beCountered:[74,35],//王昭君，鬼谷子
+	counter:[76,70]//克守约，哪吒
   },
   {
     id: 26,
@@ -205,7 +220,8 @@
     chineseName: "夏侯惇",
     imageLink: "/commons/images/5/56/Xiahou_Dun_Hero_Icon.png",
     occupation: "Clash Lane",
-    altOccupation: 'Roaming'
+    altOccupation: 'Roaming',
+	combo:[23] //朵莉亚
   },
   {
     id: 27,
@@ -269,7 +285,8 @@
     chineseName: "关羽",
     imageLink: "/commons/images/2/21/Guan_Yu_Hero_Icon.png",
     occupation: "Clash Lane",
-    altOccupation: ''
+    altOccupation: '',
+beCountered:[21] //典韦
   },
   {
     id: 35,
@@ -277,7 +294,9 @@
     chineseName: "鬼谷子",
     imageLink: "/commons/images/b/bd/Gui_Guzi_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: ''
+    altOccupation: '',
+	combo:[52,74],//刘备，王昭君
+	beCountered:[87,94]//瑶，庄周
   },
   {
     id: 36,
@@ -333,7 +352,9 @@
     chineseName: "诸葛亮",
     imageLink: "/commons/images/4/4e/Zhuge_Liang_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ''
+    altOccupation: '',
+	beCountered:[39,25,12],//黄忠，扁鹊，蔡文姬
+	combo:[65]//明世隐
   },
   {
     id: 43,
@@ -397,7 +418,10 @@
     chineseName: "张良",
     imageLink: "/commons/images/b/bd/Zhang_Liang_2019.jpg",
     occupation: "Mid Lane",
-    altOccupation: "Roaming"
+    altOccupation: "Roaming",
+beCountered:[51], //刘邦
+combo:[74],//王昭君
+counter:[5,47]//克阿离，李白
   },
   {
     id: 51,
@@ -405,7 +429,10 @@
     chineseName: "刘邦",
     imageLink: "/commons/images/6/67/Liu_Bang_Hero_Icon.png",
     occupation: "Clash Lane",
-    altOccupation: "Roaming"
+    altOccupation: "Roaming",
+combo:[70],//哪吒
+	beCountered: [30,63,58], //被老夫子，梦奇，露娜克
+counter:[50]//克张良
   },
   {
     id: 52,
@@ -498,10 +525,11 @@
   {
     id: 63,
     englishName: "Menki",
-    chineseName: "蒙恬",
+    chineseName: "梦奇",
     imageLink: "/commons/images/8/8a/Meng_Qi_Hero_Icon.png",
     occupation: "Clash Lane",
-    altOccupation: ""
+    altOccupation: "",
+counter:[68]//克宫本
   },
   {
     id: 64,
@@ -517,7 +545,9 @@
     chineseName: "明世隐",
     imageLink: "/commons/images/c/c4/Ming_Shiyin_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: ""
+    altOccupation: "",
+combo:[42,44]//诸葛亮，孙尚香
+
   },
   {
     id: 66,
@@ -541,7 +571,10 @@
     chineseName: "宫本武藏",
     imageLink: "/commons/images/6/6c/Miyamoto_Musashi_Hero_Icon.png",
     occupation: "Jungling",
-    altOccupation: "Clash Lane"
+    altOccupation: "Clash Lane",
+	counter:[7,9,12,71], //猪八戒,大司命,蔡文姬，女娲
+	beCountered:[63,92], //梦奇,周瑜
+	combo:[17]//大桥
   },
   {
     id: 69,
@@ -557,7 +590,10 @@
     chineseName: "哪吒",
     imageLink: "/commons/images/d/d7/Nezha_Hero_Icon.png",
     occupation: "Jungling",
-    altOccupation: "Clash Lane"
+    altOccupation: "Clash Lane",
+combo:[51],//刘邦
+	beCountered:[42],//被扁鹊克
+
   },
   {
     id: 71,
@@ -589,7 +625,10 @@
     chineseName: "王昭君",
     imageLink: "/commons/images/1/1f/Wang_Zhaojun_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ""
+    altOccupation: "",
+	combo:[50], //张良
+	counter:[25,65],//扁鹊
+	beCountered:[36,67,94]//韩信,木兰，鱼
   },
   {
     id: 75,
@@ -597,7 +636,9 @@
     chineseName: "上官婉儿",
     imageLink: "/commons/images/0/0a/Shangguan_Wan%27er_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ""
+    altOccupation: "",
+	counter:[],
+	beCountered:[54]//熬隐
   },
   {
     id: 76,
@@ -605,7 +646,9 @@
     chineseName: "百里守约",
     imageLink: "/commons/images/9/9c/BaiLi_ShouYue_Hero_Icon.png",
     occupation: "Farm Lane",
-    altOccupation: ""
+    altOccupation: "",
+beCountered:[12,25], //被蔡文姬,扁鹊克制
+
   },
   {
     id: 77,
@@ -621,7 +664,8 @@
     chineseName: "孙膑",
     imageLink: "/commons/images/d/d9/Sun_Bin_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: ""
+    altOccupation: "",
+	combo:[25,26,9]//扁鹊，夏侯,猪八戒
   },
   {
     id: 79,
@@ -733,7 +777,8 @@
     chineseName: "周瑜",
     imageLink: "/commons/images/4/4a/Zhou_Yu_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ""
+    altOccupation: "",
+combo:[9]//大司命
   },
   {
     id: 93,
@@ -749,7 +794,9 @@
     chineseName: "庄周",
     imageLink: "/commons/images/3/31/Zhuang_Zhou_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: "Clash Lane"
+    altOccupation: "Clash Lane",
+counter:[43,79,35],//克钟馗，孙策，鬼,
+beCountered:[37,65]//海诺，小明
   },
   {
     id: 95,

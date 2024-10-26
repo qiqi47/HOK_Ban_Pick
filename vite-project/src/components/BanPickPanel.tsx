@@ -11,6 +11,7 @@ const BanPickPanel = () => {
     bluePicks: [],
     redPicks: [],
   });
+  const [history, setHistory] = useState([]);
 
   const phases = [
     { team: 'blue', action: 'ban', text: 'Blue Ban 1' },
