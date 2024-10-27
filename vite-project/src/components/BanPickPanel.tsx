@@ -44,17 +44,24 @@ const BanPickPanel = () => {
 
   // Sample HeroList data with roles
 
+
   useEffect(() => {
     if (currentPhase < phases.length) {
       setUserTeam(phases[currentPhase].team);
     }
   }, [currentPhase]);
 
-  const handleChampionClick = (championId) => {
+  const handleChampionClick = (championId:Number) => {
     if (currentPhase >= phases.length) return;
 
     const currentAction = phases[currentPhase];
     const { team, action } = currentAction;
+
+    // Save current state to history before updating
+    setHistory(prev => [...prev, {
+      selectedHeroes: { ...selectedHeroes },
+      currentPhase
+    }]);
 
     setSelectedHeroes(prev => {
       const key = `${team}${action === 'ban' ? 'Bans' : 'Picks'}`;
@@ -67,6 +74,15 @@ const BanPickPanel = () => {
     setCurrentPhase(prev => prev + 1);
   };
 
+  const handleUndo = () => {
+    if (history.length === 0) return;
+    
+    const lastState = history[history.length - 1];
+    setSelectedHeroes(lastState.selectedHeroes);
+    setCurrentPhase(lastState.currentPhase);
+    setHistory(prev => prev.slice(0, -1));
+  };
+
   const resetDraft = () => {
     setCurrentPhase(0);
     setSelectedHeroes({
@@ -76,11 +92,38 @@ const BanPickPanel = () => {
       redPicks: [],
     });
     setSelectedRole('all');
+    setHistory([]);
   };
 
   const getHeroById = (id:Number) => HeroList.find(hero => hero.id === id);
 
-  const isChampionSelected = (championId) => {
+  const getTeamPicks = (team:String) => {
+    return team === 'blue' ? selectedHeroes.bluePicks : selectedHeroes.redPicks;
+  };
+
+  const getRecommendations = () => {
+    const currentTeamPicks = getTeamPicks(userTeam);
+    if (currentTeamPicks.length === 0) return null;
+
+    const recommendations = {
+      combos: [],
+      counters: [],
+      beCountered: []
+    };
+
+    currentTeamPicks.forEach(heroId => {
+      const hero = getHeroById(heroId);
+      if (hero) {
+        if (hero.combo) recommendations.combos.push(...hero.combo);
+        if (hero.counter) recommendations.counters.push(...hero.counter);
+        if (hero.beCountered) recommendations.beCountered.push(...hero.beCountered);
+      }
+    });
+
+    return recommendations;
+  };
+
+  const isChampionSelected = (championId:Number) => {
     const allSelected = [
       ...selectedHeroes.blueBans,
       ...selectedHeroes.redBans,
@@ -115,35 +158,48 @@ const BanPickPanel = () => {
     <div className={`min-h-screen bg-gradient-to-b ${getBackgroundColor()} p-4 transition-all duration-500 w-[100vw] flex flex-row`}>
 <div className='w-[80%]'>
       {/* Header Controls */}
-      <div className="flex justify-between items-center mb-8">
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setUserTeam('blue')}
-            className={`px-4 py-2 rounded transition-colors duration-300 ${
-              userTeam === 'blue' ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'
-            }`}
-          >
-            Blue Team
-          </button>
-          <button
-            onClick={() => setUserTeam('red')}
-            className={`px-4 py-2 rounded transition-colors duration-300 ${
-              userTeam === 'red' ? 'bg-red-500 text-white' : 'bg-gray-700 text-gray-300'
-            }`}
-          >
-            Red Team
-          </button>
+   <div className="flex justify-between items-center mb-8">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setUserTeam('blue')}
+              className={`px-4 py-2 rounded transition-colors duration-300 ${
+                userTeam === 'blue' ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'
+              }`}
+            >
+              Blue Team
+            </button>
+            <button
+              onClick={() => setUserTeam('red')}
+              className={`px-4 py-2 rounded transition-colors duration-300 ${
+                userTeam === 'red' ? 'bg-red-500 text-white' : 'bg-gray-700 text-gray-300'
+              }`}
+            >
+              Red Team
+            </button>
+          </div>
+          <div className="text-white text-xl font-bold">
+            {getCurrentActionText()}
+          </div>
+          <div className="flex gap-4">
+            <button
+              onClick={handleUndo}
+              disabled={history.length === 0}
+              className={`px-4 py-2 rounded transition-colors duration-300 ${
+                history.length > 0 
+                  ? 'bg-orange-600 hover:bg-orange-700 text-white' 
+                  : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              Undo
+            </button>
+            <button
+              onClick={resetDraft}
+              className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded transition-colors duration-300"
+            >
+              Reset Draft
+            </button>
+          </div>
         </div>
-        <div className="text-white text-xl font-bold">
-          {getCurrentActionText()}
-        </div>
-        <button
-          onClick={resetDraft}
-          className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded transition-colors duration-300"
-        >
-          Reset Draft
-        </button>
-      </div>
 
       {/* Role Filter Buttons */}
       <div className="flex justify-center gap-4 mb-8">
@@ -285,8 +341,71 @@ return hero && (
         </div>
       </div>
 </div>
-{/* Recommodation */}
-<div className='w-16 ml-4'></div>
+{/* Recommendation Panel */}
+      <div className="w-[20%] ml-4 bg-gray-800/50 rounded-lg p-4">
+        <h2 className="text-white font-bold text-xl mb-4">Recommendations</h2>
+        {getRecommendations() ? (
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-green-400 font-bold mb-2">Good Combinations</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {getRecommendations().combos.map(heroId => {
+                  const hero = getHeroById(heroId);
+                  return hero && (
+                    <div key={heroId} className="aspect-square bg-gray-700/50 rounded overflow-hidden">
+                      <img 
+                        src={`/src/assets/heroesImg/${hero.id}.png`}
+                        alt={hero.englishName}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-blue-400 font-bold mb-2">Counters</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {getRecommendations().counters.map(heroId => {
+                  const hero = getHeroById(heroId);
+                  return hero && (
+                    <div key={heroId} className="aspect-square bg-gray-700/50 rounded overflow-hidden">
+                      <img 
+                        src={`/src/assets/heroesImg/${hero.id}.png`}
+                        alt={hero.englishName}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-red-400 font-bold mb-2">Countered By</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {getRecommendations().beCountered.map(heroId => {
+                  const hero = getHeroById(heroId);
+                  return hero && (
+                    <div key={heroId} className="aspect-square bg-gray-700/50 rounded overflow-hidden">
+                      <img 
+                        src={`/src/assets/heroesImg/${hero.id}.png`}
+                        alt={hero.englishName}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="text-gray-400">
+            Select heroes to see recommendations
+          </div>
+        )}
+      </div>
     </div>
   );
 };
