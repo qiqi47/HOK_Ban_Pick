@@ -1,19 +1,61 @@
 import { useState, useEffect } from 'react';
 import HeroList from './HeroList';
 
+// Type definitions
+interface Hero {
+  id: number;
+  chineseName: string;
+  englishName: string;
+  occupation: string;
+  altOccupation?: string;
+  combo?: number[];
+  counter?: number[];
+  beCountered?: number[];
+}
+
+interface Role {
+  id: string;
+  name: string;
+  englishName: string;
+}
+
+interface Phase {
+  team: 'blue' | 'red';
+  action: 'ban' | 'pick';
+  text: string;
+}
+
+interface SelectedHeroes {
+  blueBans: number[];
+  redBans: number[];
+  bluePicks: number[];
+  redPicks: number[];
+}
+
+interface HistoryState {
+  selectedHeroes: SelectedHeroes;
+  currentPhase: number;
+}
+
+interface Recommendations {
+  combos: number[];
+  counters: number[];
+  beCountered: number[];
+}
+
 const BanPickPanel = () => {
-  const [userTeam, setUserTeam] = useState('blue');
-  const [currentPhase, setCurrentPhase] = useState(0);
-  const [selectedRole, setSelectedRole] = useState('all');
-  const [selectedHeroes, setSelectedHeroes] = useState({
+  const [userTeam, setUserTeam] = useState<'blue' | 'red'>('blue');
+  const [currentPhase, setCurrentPhase] = useState<number>(0);
+  const [selectedRole, setSelectedRole] = useState<string>('all');
+  const [selectedHeroes, setSelectedHeroes] = useState<SelectedHeroes>({
     blueBans: [],
     redBans: [],
     bluePicks: [],
     redPicks: [],
   });
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState<HistoryState[]>([]);
 
-  const phases = [
+  const phases: Phase[] = [
     { team: 'blue', action: 'ban', text: 'Blue Ban 1' },
     { team: 'red', action: 'ban', text: 'Red Ban 1' },
     { team: 'blue', action: 'ban', text: 'Blue Ban 2' },
@@ -34,7 +76,7 @@ const BanPickPanel = () => {
     { team: 'red', action: 'pick', text: 'Red Pick 5' },
   ];
 
-  const roles = [
+  const roles: Role[] = [
     { id: 'Jungling', name: '打野', englishName: 'Jungling' },
     { id: 'Clash Lane', name: '对抗路', englishName: 'Clash Lane' },
     { id: 'Mid Lane', name: '中路', englishName: 'Mid Lane' },
@@ -42,29 +84,25 @@ const BanPickPanel = () => {
     { id: 'Farm Lane', name: '发育路', englishName: 'Farm Lane' },
   ];
 
-  // Sample HeroList data with roles
-
-
   useEffect(() => {
     if (currentPhase < phases.length) {
       setUserTeam(phases[currentPhase].team);
     }
   }, [currentPhase]);
 
-  const handleChampionClick = (championId:Number) => {
+  const handleChampionClick = (championId: number): void => {
     if (currentPhase >= phases.length) return;
 
     const currentAction = phases[currentPhase];
     const { team, action } = currentAction;
 
-    // Save current state to history before updating
     setHistory(prev => [...prev, {
       selectedHeroes: { ...selectedHeroes },
       currentPhase
     }]);
 
     setSelectedHeroes(prev => {
-      const key = `${team}${action === 'ban' ? 'Bans' : 'Picks'}`;
+      const key = `${team}${action === 'ban' ? 'Bans' : 'Picks'}` as keyof SelectedHeroes;
       return {
         ...prev,
         [key]: [...prev[key], championId]
@@ -74,7 +112,7 @@ const BanPickPanel = () => {
     setCurrentPhase(prev => prev + 1);
   };
 
-  const handleUndo = () => {
+  const handleUndo = (): void => {
     if (history.length === 0) return;
     
     const lastState = history[history.length - 1];
@@ -83,7 +121,7 @@ const BanPickPanel = () => {
     setHistory(prev => prev.slice(0, -1));
   };
 
-  const resetDraft = () => {
+  const resetDraft = (): void => {
     setCurrentPhase(0);
     setSelectedHeroes({
       blueBans: [],
@@ -95,17 +133,22 @@ const BanPickPanel = () => {
     setHistory([]);
   };
 
-  const getHeroById = (id:Number) => HeroList.find(hero => hero.id === id);
+  const getHeroById = (id: number): Hero | undefined => 
+    HeroList.find(hero => hero.id === id);
 
-  const getTeamPicks = (team:String) => {
+  const getTeamPicks = (team: 'blue' | 'red'): number[] => {
     return team === 'blue' ? selectedHeroes.bluePicks : selectedHeroes.redPicks;
   };
 
-  const getRecommendations = () => {
+const getRecommendations = (): Recommendations => {
     const currentTeamPicks = getTeamPicks(userTeam);
-    if (currentTeamPicks.length === 0) return null;
+    if (currentTeamPicks.length === 0) return {
+      combos: [],
+      counters: [],
+      beCountered: []
+    };
 
-    const recommendations = {
+    const recommendations: Recommendations = {
       combos: [],
       counters: [],
       beCountered: []
@@ -123,7 +166,7 @@ const BanPickPanel = () => {
     return recommendations;
   };
 
-  const isChampionSelected = (championId:Number) => {
+  const isChampionSelected = (championId: number): boolean => {
     const allSelected = [
       ...selectedHeroes.blueBans,
       ...selectedHeroes.redBans,
@@ -133,17 +176,17 @@ const BanPickPanel = () => {
     return allSelected.includes(championId);
   };
 
-  const getCurrentActionText = () => {
+  const getCurrentActionText = (): string => {
     if (currentPhase >= phases.length) return 'Draft Complete';
     return phases[currentPhase].text;
   };
 
-  const isUserTurn = () => {
+  const isUserTurn = (): boolean => {
     if (currentPhase >= phases.length) return false;
     return phases[currentPhase].team === userTeam;
   };
 
-  const getBackgroundColor = () => {
+  const getBackgroundColor = (): string => {
     if (currentPhase >= phases.length) return 'from-gray-900 to-gray-800';
     return phases[currentPhase].team === 'blue' 
       ? 'from-blue-900/50 to-blue-800/50'
@@ -153,6 +196,7 @@ const BanPickPanel = () => {
   const filteredHeroes = HeroList.filter(item => 
     selectedRole === 'all' || item.occupation === selectedRole || item.altOccupation === selectedRole
   );
+
 
   return (
     <div className={`min-h-screen bg-gradient-to-b ${getBackgroundColor()} p-4 transition-all duration-500 w-[100vw] flex flex-row`}>

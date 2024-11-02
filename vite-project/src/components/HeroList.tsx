@@ -83,7 +83,7 @@ beCountered:[21,3,55]//被典韦，亚连，吕布克制
     englishName: "Biron",
     chineseName: "狂铁",
     imageLink: "/commons/images/1/12/Kuang_Tie_Hero_Icon.png",
-    occupation: "Class Lane",
+    occupation: "Clash Lane",
     altOccupation: ''
   },
   {
