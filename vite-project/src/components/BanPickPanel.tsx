@@ -198,6 +198,21 @@ const getRecommendations = (): Recommendations => {
     selectedRole === 'all' || item.occupation === selectedRole || item.altOccupation === selectedRole
   );
 
+  const getRecommendationSources = (heroId: number, currentTeamPicks: number[]): string[] => {
+    return currentTeamPicks
+      .map(pickId => {
+        const hero = getHeroById(pickId);
+        if (hero) {
+          if (hero.combo && hero.combo.includes(heroId)) return hero.chineseName;
+          if (hero.counter && hero.counter.includes(heroId)) return hero.chineseName;
+          if (hero.beCountered && hero.beCountered.includes(heroId)) return hero.chineseName;
+        }
+        return null;
+      })
+      .filter((name): name is string => name !== null);
+  };
+
+
 
   return (
     <div className={`min-h-screen bg-gradient-to-b ${getBackgroundColor()} p-4 transition-all duration-500 w-[100vw] flex flex-row`}>
@@ -387,6 +402,7 @@ return hero && (
       </div>
 </div>
 {/* Recommendation Panel */}
+   {/* Recommendation Panel */}
       <div className="w-[20%] ml-4 bg-gray-800/50 rounded-lg p-4">
         <h2 className="text-white font-bold text-xl mb-4">Recommendations</h2>
         {getRecommendations() ? (
@@ -396,13 +412,22 @@ return hero && (
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().combos.map(heroId => {
                   const hero = getHeroById(heroId);
+                  const sources = getRecommendationSources(heroId, getTeamPicks(userTeam));
                   return hero && (
-                    <div key={heroId} className="aspect-square bg-gray-700/50 rounded overflow-hidden">
-                      <img 
-                        src={`/src/assets/heroesImg/${hero.id}.png`}
-                        alt={hero.englishName}
-                        className="w-full h-full object-cover"
-                      />
+                    <div key={heroId} className="flex flex-col items-center">
+                      <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
+                        <img 
+                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          alt={hero.englishName}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="mt-1 text-xs text-gray-300 text-center">
+                        <div>{hero.chineseName}</div>
+                        <div className="text-green-400">
+                          配合: {sources.join(', ')}
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -410,17 +435,26 @@ return hero && (
             </div>
 
             <div>
-              <h3 className="text-blue-400 font-bold mb-2">Counters</h3>
+              <h3 className="text-blue-400 font-bold mb-2">克制对方</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().counters.map(heroId => {
                   const hero = getHeroById(heroId);
+                  const sources = getRecommendationSources(heroId, getTeamPicks(userTeam));
                   return hero && (
-                    <div key={heroId} className="aspect-square bg-gray-700/50 rounded overflow-hidden">
-                      <img 
-                        src={`/src/assets/heroesImg/${hero.id}.png`}
-                        alt={hero.englishName}
-                        className="w-full h-full object-cover"
-                      />
+                    <div key={heroId} className="flex flex-col items-center">
+                      <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
+                        <img 
+                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          alt={hero.englishName}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="mt-1 text-xs text-gray-300 text-center">
+                        <div>{hero.chineseName}</div>
+                        <div className="text-blue-400">
+                          被{sources.join(', ')}克制
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -428,17 +462,26 @@ return hero && (
             </div>
 
             <div>
-              <h3 className="text-red-400 font-bold mb-2">Countered By</h3>
+              <h3 className="text-red-400 font-bold mb-2">被对方以下英雄克制</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().beCountered.map(heroId => {
                   const hero = getHeroById(heroId);
+                  const sources = getRecommendationSources(heroId, getTeamPicks(userTeam));
                   return hero && (
-                    <div key={heroId} className="aspect-square bg-gray-700/50 rounded overflow-hidden">
-                      <img 
-                        src={`/src/assets/heroesImg/${hero.id}.png`}
-                        alt={hero.englishName}
-                        className="w-full h-full object-cover"
-                      />
+                    <div key={heroId} className="flex flex-col items-center">
+                      <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
+                        <img 
+                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          alt={hero.englishName}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="mt-1 text-xs text-gray-300 text-center">
+                        <div>{hero.chineseName}</div>
+                        <div className="text-red-400">
+                         克制{sources.join(', ')}
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
