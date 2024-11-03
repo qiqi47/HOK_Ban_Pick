@@ -44,6 +44,7 @@ interface Recommendations {
 }
 
 const BanPickPanel = () => {
+
   const [userTeam, setUserTeam] = useState<'blue' | 'red'>('blue');
   const [currentPhase, setCurrentPhase] = useState<number>(0);
   const [selectedRole, setSelectedRole] = useState<string>('all');

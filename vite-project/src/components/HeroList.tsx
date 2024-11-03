@@ -118,7 +118,9 @@ counter:[42,88,76]//克诸葛亮，杨玉环，守约
     chineseName: "夏洛特",
     imageLink: "/commons/images/b/b2/Charlotte_Hero_Icon.jpg",
     occupation: "Clash Lane",
-    altOccupation: ''
+    altOccupation: '',
+counter:[77],
+beCountered:[6,50]
   },
   {
     id: 15,
@@ -275,7 +277,8 @@ beCountered:[26,53] //刘禅，夏侯
     chineseName: "高渐离",
     imageLink: "/commons/images/d/db/Gao_Jianli_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ''
+    altOccupation: '',
+counter:[64]
   },
   {
     id: 33,
@@ -458,7 +461,10 @@ counter:[50,32]//克张良
     chineseName: "刘禅",
     imageLink: "/commons/images/7/76/Liu_Shan_Hero_Icon.png",
     occupation: "Roaming",
-    altOccupation: ""
+    altOccupation: "",
+counter:[30,39],
+beCountered:[94,20,70],
+combo:[64,1]
   },
   {
     id: 54,
@@ -509,7 +515,10 @@ beCountered:[3,48,37]//亚连，李信
     chineseName: "不知火舞",
     imageLink: "/commons/images/1/13/Mai_Shiranui_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ""
+    altOccupation: "",
+counter:[71,96],
+beCountered:[6,18]
+
   },
   {
     id: 60,
@@ -551,7 +560,9 @@ counter:[68]//克宫本
     chineseName: "米莱狄",
     imageLink: "/commons/images/0/03/Milady_Hero_Icon.png",
     occupation: "Mid Lane",
-    altOccupation: ""
+    altOccupation: "",
+counter:[91,50],
+beCountered:[75,32,96]
   },
   {
     id: 65,
@@ -651,8 +662,8 @@ combo:[51],//刘邦
     imageLink: "/commons/images/0/0a/Shangguan_Wan%27er_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-	counter:[],
-	beCountered:[54]//熬隐
+	counter:[96,1,64],
+	beCountered:[54,5]//熬隐
   },
   {
     id: 76,
@@ -713,7 +724,9 @@ beCountered:[94,7]//庄周，猪八戒
     chineseName: "钟无艳",
     imageLink: "/commons/images/e/e2/Zhong_Wu_Yan_Hero_Icon.png",
     occupation: "Jungling",
-    altOccupation: "Jungling"
+    altOccupation: "Clash Lane",
+counter:[59],
+beCountered:[70,55,37]
   },
   {
     id: 83,
@@ -833,7 +846,10 @@ beCountered:[37,65]//海诺，小明
     chineseName: "姜子牙",
     imageLink: "/commons/images/3/33/Jiang_Ziya_Hero_Icon_2022.jpg",
     occupation: "Mid Lane",
-    altOccupation: "Roaming"
+    altOccupation: "Roaming",
+combo:[],
+counter:[64,1],
+beCountered:[75,59]
   }
 ];
 export default HeroList;
