@@ -41,6 +41,8 @@ interface Recommendations {
   combos: number[];
   counters: number[];
   beCountered: number[];
+  enemyBeCountered: number[]; // 新添加的属性，存储克制对方英雄的推荐
+
 }
 
 const BanPickPanel = () => {
@@ -142,30 +144,53 @@ const BanPickPanel = () => {
   };
 
 const getRecommendations = (): Recommendations => {
-    const currentTeamPicks = getTeamPicks(userTeam);
-    if (currentTeamPicks.length === 0) return {
+  const currentTeamPicks = getTeamPicks(userTeam);
+  const enemyTeamPicks = getTeamPicks(userTeam === 'blue' ? 'red' : 'blue');
+
+  // 获取已禁用的英雄
+  const bannedHeroes = [
+    ...selectedHeroes.blueBans,
+    ...selectedHeroes.redBans
+  ];
+
+  // 如果双方都没有选英雄，不返回推荐
+  if (currentTeamPicks.length === 0 && enemyTeamPicks.length === 0) {
+    return {
       combos: [],
       counters: [],
-      beCountered: []
+      beCountered: [],
+      enemyBeCountered: []
     };
+  }
 
-    const recommendations: Recommendations = {
-      combos: [],
-      counters: [],
-      beCountered: []
-    };
-
-    currentTeamPicks.forEach(heroId => {
-      const hero = getHeroById(heroId);
-      if (hero) {
-        if (hero.combo) recommendations.combos.push(...hero.combo);
-        if (hero.counter) recommendations.counters.push(...hero.counter);
-        if (hero.beCountered) recommendations.beCountered.push(...hero.beCountered);
-      }
-    });
-
-    return recommendations;
+  const recommendations: Recommendations = {
+    combos: [],
+    counters: [],
+    beCountered: [],
+    enemyBeCountered: []
   };
+
+  // 处理当前队伍的英雄推荐
+  currentTeamPicks.forEach(heroId => {
+    const hero = getHeroById(heroId);
+    if (hero) {
+      if (hero.combo) recommendations.combos.push(...hero.combo.filter(id => !bannedHeroes.includes(id)));
+      if (hero.counter) recommendations.counters.push(...hero.counter.filter(id => !bannedHeroes.includes(id)));
+      if (hero.beCountered) recommendations.beCountered.push(...hero.beCountered.filter(id => !bannedHeroes.includes(id)));
+    }
+  });
+
+  // 处理对方队伍的英雄被克制情况
+  enemyTeamPicks.forEach(heroId => {
+    const hero = getHeroById(heroId);
+    if (hero && hero.beCountered) {
+      recommendations.enemyBeCountered.push(...hero.beCountered.filter(id => !bannedHeroes.includes(id)));
+    }
+  });
+
+  return recommendations;
+};
+
 
   const isChampionSelected = (championId: number): boolean => {
     const allSelected = [
@@ -407,6 +432,63 @@ return hero && (
         <h2 className="text-white font-bold text-xl mb-4">Recommendations</h2>
         {getRecommendations() ? (
           <div className="space-y-6">
+{/* 新添加的对方英雄被克制部分 */}
+        <div>
+          <h3 className="text-purple-400 font-bold mb-2">对方英雄被以下英雄克制</h3>
+          <div className="grid grid-cols-3 gap-2">
+            {getRecommendations().enemyBeCountered.map(heroId => {
+              const hero = getHeroById(heroId);
+              const enemyTeam = userTeam === 'blue' ? 'red' : 'blue';
+              const sources = getRecommendationSources(heroId, getTeamPicks(enemyTeam));
+              return hero && (
+                <div key={heroId} className="flex flex-col items-center">
+                  <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
+                    <img 
+                      src={`/src/assets/heroesImg/${hero.id}.png`}
+                      alt={hero.englishName}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-1 text-xs text-gray-300 text-center">
+                    <div>{hero.chineseName}</div>
+                    <div className="text-purple-400">
+                      克制{sources.join(', ')}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+
+            <div>
+              <h3 className="text-red-400 font-bold mb-2">对面可能会选择克我方阵容</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {getRecommendations().beCountered.map(heroId => {
+                  const hero = getHeroById(heroId);
+                  const sources = getRecommendationSources(heroId, getTeamPicks(userTeam));
+                  return hero && (
+                    <div key={heroId} className="flex flex-col items-center">
+                      <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
+                        <img 
+                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          alt={hero.englishName}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="mt-1 text-xs text-gray-300 text-center">
+                        <div>{hero.chineseName}</div>
+                        <div className="text-red-400">
+                         克制{sources.join(', ')}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <div>
               <h3 className="text-green-400 font-bold mb-2">Good Combinations</h3>
               <div className="grid grid-cols-3 gap-2">
@@ -435,7 +517,7 @@ return hero && (
             </div>
 
             <div>
-              <h3 className="text-blue-400 font-bold mb-2">克制对方</h3>
+              <h3 className="text-blue-400 font-bold mb-2">被克制</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().counters.map(heroId => {
                   const hero = getHeroById(heroId);
@@ -461,32 +543,8 @@ return hero && (
               </div>
             </div>
 
-            <div>
-              <h3 className="text-red-400 font-bold mb-2">被对方以下英雄克制</h3>
-              <div className="grid grid-cols-3 gap-2">
-                {getRecommendations().beCountered.map(heroId => {
-                  const hero = getHeroById(heroId);
-                  const sources = getRecommendationSources(heroId, getTeamPicks(userTeam));
-                  return hero && (
-                    <div key={heroId} className="flex flex-col items-center">
-                      <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
-                        <img 
-                          src={`/src/assets/heroesImg/${hero.id}.png`}
-                          alt={hero.englishName}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="mt-1 text-xs text-gray-300 text-center">
-                        <div>{hero.chineseName}</div>
-                        <div className="text-red-400">
-                         克制{sources.join(', ')}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+
+
           </div>
         ) : (
           <div className="text-gray-400">

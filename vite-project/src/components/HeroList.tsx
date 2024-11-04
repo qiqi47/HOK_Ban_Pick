@@ -655,7 +655,9 @@ beCountered:[1,9,82]
     chineseName: "花木兰",
     imageLink: "/commons/images/d/d4/Hua_Mulan_Hero_Icon.png",
     occupation: "Clash Lane",
-    altOccupation: ""
+    altOccupation: "",
+counter:[30,74,94],
+beCountered:[24,50]
   },
   {
     id: 68,
