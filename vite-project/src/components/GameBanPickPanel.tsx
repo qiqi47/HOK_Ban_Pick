@@ -429,7 +429,7 @@ const GameBanPickPanel = ({ phases }: { phases: Phase[] }) => {
           <div className="space-y-6">
             {/* 新添加的对方英雄被克制部分 */}
             <div>
-              <h3 className="text-purple-400 font-bold mb-2">{language==='eng'?`The opponents are countered by the following heroes`:'对方英雄被以下英雄克制'}</h3>
+              <h3 className="text-purple-400 font-bold mb-2">{language==='eng'?`The opponents are countered by`:'对方英雄被以下英雄克制'}</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().enemyBeCountered.map(heroId => {
                   const hero = getHeroById(heroId);
