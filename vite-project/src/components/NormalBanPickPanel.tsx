@@ -490,7 +490,7 @@ return hero && (
                         />
                       </div>
                       <div className="mt-1 text-xs text-gray-300 text-center">
-                        <div>{hero.chineseName}</div>
+                       {language=='eng'?<div>{hero.englishName}</div>:<div>{hero.chineseName}</div>}
                         <div className="text-red-400">
   {language === 'eng' ? `Counter: ${sources.join(', ')}` : `克制: ${sources.join(', ')}`}
                         </div>
@@ -517,7 +517,7 @@ return hero && (
                         />
                       </div>
                       <div className="mt-1 text-xs text-gray-300 text-center">
-                        <div>{hero.chineseName}</div>
+                       {language=='eng'?<div>{hero.englishName}</div>:<div>{hero.chineseName}</div>}
                         <div className="text-green-400">
   {language === 'eng' ? `With ${sources.join(', ')}` : `和${sources.join(', ')}配合`}
                         </div>
