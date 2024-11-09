@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
 				Match (4 bans)
             </button>
           </div>
-          <img src='/github-mark-white.png' className='w-8 h-8 cursor-pointer' onClick={()=>window.open('https://github.com/qiqi47')}/>
+          <img src='/github-mark-white.png' className='w-8 h-8 cursor-pointer' onClick={()=>window.open('https://github.com/qiqi47/HOK_Ban_Pick')}/>
         </div>
       </div>
       <div key={key}>
