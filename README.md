@@ -3,7 +3,7 @@
 
 This project is a **ban/pick simulator** for the game **Honor of Kings** (King of Glory). It allows users to simulate the drafting process with customizable ban/pick phases, supporting both **normal/ranking mode** (2 bans) and **match mode** (4 bans).
 
-Website: [Visit the site online](https://hokbp.netlify.com)
+Website: [Visit the site online](https://hokbp.netlify.app) https://hokbp.netlify.app
 
 ## Table of Contents
 
@@ -60,7 +60,7 @@ Enjoy simulating your Honor of Kings drafts!
 
 本项目是一个用于**王者荣耀**（Honor of Kings）游戏的**ban/pick模拟器**。用户可以通过此工具模拟比赛中的选英雄过程，支持**普通/排位模式**（2个ban位）和**比赛模式**（4个ban位），并允许自定义ban/pick阶段。
 
-网站在线访问：[点击这里访问网站](https://hokbp.netlify.com)
+网站在线访问：[点击这里访问网站](https://hokbp.netlify.app) https://hokbp.netlify.app
 
 ## 目录
 
