@@ -1,14 +1,14 @@
 // src/pages/Simulator.tsx
 import React from 'react';
-import GameBanPickPanel from '../components/GameBanPickPanel';
+import NormalBanPickPanel from '../components/NormalBanPickPanel';
 import Header from '../components/Header';
-const Dashboard: React.FC = () => {
+const Normal: React.FC = () => {
   return (
     <div>
 <Header/>
-	  <GameBanPickPanel/>
+	  <NormalBanPickPanel/>
     </div>
   );
 };
 
-export default Dashboard;
+export default Normal;

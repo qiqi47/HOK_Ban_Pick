@@ -45,7 +45,7 @@ interface Recommendations {
 
 }
 
-const BanPickPanel = () => {
+const NormalBanPickPanel = () => {
   const [language, setLanguage] = useState<'eng' | 'zh'>('eng');
   const [userTeam, setUserTeam] = useState<'blue' | 'red'>('blue');
 const [currentPhase, setCurrentPhase] = useState<number>(0);
@@ -61,8 +61,8 @@ const [resetCounter, setResetCounter] = useState(0);
 
   const phases: Phase[] = [
     { team: 'blue', action: 'ban', text: 'Blue Ban 1' },
-    { team: 'red', action: 'ban', text: 'Red Ban 1' },
     { team: 'blue', action: 'ban', text: 'Blue Ban 2' },
+    { team: 'red', action: 'ban', text: 'Red Ban 1' },
     { team: 'red', action: 'ban', text: 'Red Ban 2' },
     { team: 'blue', action: 'pick', text: 'Blue Pick 1' },
     { team: 'red', action: 'pick', text: 'Red Pick 1' },
@@ -70,10 +70,6 @@ const [resetCounter, setResetCounter] = useState(0);
     { team: 'blue', action: 'pick', text: 'Blue Pick 2' },
     { team: 'blue', action: 'pick', text: 'Blue Pick 3' },
     { team: 'red', action: 'pick', text: 'Red Pick 3' },
-    { team: 'red', action: 'ban', text: 'Red Ban 3' },
-    { team: 'blue', action: 'ban', text: 'Blue Ban 3' },
-    { team: 'red', action: 'ban', text: 'Red Ban 4' },
-    { team: 'blue', action: 'ban', text: 'Blue Ban 4' },
     { team: 'red', action: 'pick', text: 'Red Pick 4' },
     { team: 'blue', action: 'pick', text: 'Blue Pick 4' },
     { team: 'blue', action: 'pick', text: 'Blue Pick 5' },
@@ -570,4 +566,4 @@ return hero && (
   );
 };
 
-export default BanPickPanel;
+export default NormalBanPickPanel;
