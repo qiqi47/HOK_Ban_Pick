@@ -320,7 +320,7 @@ const getRecommendations = (): Recommendations => {
           const hero = getHeroById(id);
           return hero && (
             <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden opacity-50">
-              <img                   src={`/src/assets/heroesImg/${hero.id}.png`} 
+              <img                   src={`/heroesImg/${hero.id}.png`} 
  alt={hero.englishName} className="w-full h-full object-cover" />
             </div>
           );
@@ -334,7 +334,7 @@ const getRecommendations = (): Recommendations => {
 const hero = getHeroById(id);
 return hero && (
                     <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden">
-                      <img   src={`/src/assets/heroesImg/${hero.id}.png`} alt={hero.englishName} className="w-full h-full object-cover" />
+                      <img   src={`/heroesImg/${hero.id}.png`} alt={hero.englishName} className="w-full h-full object-cover" />
                     </div> )
 })}
                 </div>
@@ -361,7 +361,7 @@ return hero && (
                 `}
               >
                 <img 
-                  src={`/src/assets/heroesImg/${item.id}.png`} 
+                  src={`/heroesImg/${item.id}.png`} 
                   alt={item.chineseName}
                   className="w-full h-full object-cover"
                 />
@@ -405,7 +405,7 @@ return hero && (
           const hero = getHeroById(id);
           return hero && (
             <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden opacity-50">
-              <img                   src={`/src/assets/heroesImg/${hero.id}.png`} 
+              <img                   src={`/heroesImg/${hero.id}.png`} 
  alt={hero.englishName} className="w-full h-full object-cover" />
             </div>
           );
@@ -419,7 +419,7 @@ return hero && (
 const hero = getHeroById(id);
 return hero && (
                     <div key={id} className="aspect-square bg-gray-700 rounded overflow-hidden">
-                      <img   src={`/src/assets/heroesImg/${hero.id}.png`} alt={hero.englishName} className="w-full h-full object-cover" />
+                      <img   src={`/heroesImg/${hero.id}.png`} alt={hero.englishName} className="w-full h-full object-cover" />
                     </div> )
 })}
                 </div>
@@ -447,7 +447,7 @@ return hero && (
                 <div key={heroId} className="flex flex-col items-center">
                   <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
                     <img 
-                      src={`/src/assets/heroesImg/${hero.id}.png`}
+                      src={`/heroesImg/${hero.id}.png`}
                       alt={hero.englishName}
                       className="w-full h-full object-cover"
                     />
@@ -475,7 +475,7 @@ return hero && (
                     <div key={heroId} className="flex flex-col items-center">
                       <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
                         <img 
-                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          src={`/heroesImg/${hero.id}.png`}
                           alt={hero.englishName}
                           className="w-full h-full object-cover"
                         />
@@ -502,7 +502,7 @@ return hero && (
                     <div key={heroId} className="flex flex-col items-center">
                       <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
                         <img 
-                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          src={`/heroesImg/${hero.id}.png`}
                           alt={hero.englishName}
                           className="w-full h-full object-cover"
                         />
@@ -529,7 +529,7 @@ return hero && (
                     <div key={heroId} className="flex flex-col items-center">
                       <div className="aspect-square w-full bg-gray-700/50 rounded overflow-hidden">
                         <img 
-                          src={`/src/assets/heroesImg/${hero.id}.png`}
+                          src={`/heroesImg/${hero.id}.png`}
                           alt={hero.englishName}
                           className="w-full h-full object-cover"
                         />
