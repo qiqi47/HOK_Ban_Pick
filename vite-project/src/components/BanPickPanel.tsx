@@ -57,6 +57,7 @@ const BanPickPanel = () => {
     redPicks: [],
   });
   const [history, setHistory] = useState<HistoryState[]>([]);
+const [resetCounter, setResetCounter] = useState(0);
 
   const phases: Phase[] = [
     { team: 'blue', action: 'ban', text: 'Blue Ban 1' },
@@ -134,6 +135,8 @@ const BanPickPanel = () => {
     });
     setSelectedRole('all');
     setHistory([]);
+  setResetCounter(prev => prev + 1); // Force re-render with a new key
+
   };
 
   const getHeroById = (id: number): Hero | undefined => 
@@ -240,7 +243,7 @@ const getRecommendations = (): Recommendations => {
 
 
   return (
-    <div className={`min-h-screen bg-gradient-to-b ${getBackgroundColor()} p-4 transition-all duration-500 w-[100vw] flex flex-row`}>
+    <div className={`min-h-screen bg-gradient-to-b ${getBackgroundColor()} p-4 transition-all duration-500 w-[100vw] flex flex-row`} key={resetCounter}>
 <div className='w-[80%]'>
       {/* Header Controls */}
    <div className="flex justify-between items-center mb-8">

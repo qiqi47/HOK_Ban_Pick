@@ -7,7 +7,7 @@
     occupation: "Jungling",
     altOccupation: '',
 	counter:[50,66],
-	beCountered:[75]
+	beCountered:[75,44]
   },
   {
     id: 2,
