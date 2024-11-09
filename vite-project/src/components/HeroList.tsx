@@ -125,7 +125,7 @@ counter:[42,88,76]//克诸葛亮，杨玉环，守约
   },
   {
     id: 13,
-    englishName: "Xi Shi",
+    englishName: "Shi",
     chineseName: "西施",
     imageLink: "/commons/images/0/00/Cao_Cao_Hero_Icon.png",
     occupation: "Mid Lane",
