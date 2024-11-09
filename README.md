@@ -6,8 +6,7 @@ This project is a **ban/pick simulator** for the game **Honor of Kings** (King o
 ## Table of Contents
 
 - [Project Setup](#project-setup)
-- [Usage](#usage)
-- [Linting](#linting)
+- [Features](#features)
 - [Future](#future)
 - [License](#license)
 
@@ -42,7 +41,7 @@ This project is a **ban/pick simulator** for the game **Honor of Kings** (King o
 - **Real-Time Updates**: Ban/pick phases update interactively based on user selection.
 - **Flexible Ban/Pick Panel**: The `GameBanPickPanel` component dynamically renders the draft process according to the selected mode.
 
-## Features
+## Future
 
 - **Responsiveness**: Enhanced responsiveness for mobile and tablet devices, ensuring a seamless user experience across various platforms.
 - **Intelligent Team Recommendation**: An AI-powered team composition recommendation system that suggests optimal hero choices based on team needs and match-up analysis.
