@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Header = () => {
   return (
@@ -9,7 +8,7 @@ const Header = () => {
 <a className='text-white' href='/'>Normal/Ranking (2 bans)</a>
 <a className='text-white' href='match'>Match (4 bans) </a>
 </div>
-<img src='/github-mark-white.png' className='w-8 h-8 cursor-pointer' onClick={(e)=>window.open('https://github.com/qiqi47')}/>
+<img src='/github-mark-white.png' className='w-8 h-8 cursor-pointer' onClick={()=>window.open('https://github.com/qiqi47')}/>
 </div>
 </div>
   )
