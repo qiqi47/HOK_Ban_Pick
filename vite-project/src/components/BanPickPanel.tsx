@@ -46,9 +46,9 @@ interface Recommendations {
 }
 
 const BanPickPanel = () => {
-
+  const [language, setLanguage] = useState<'eng' | 'zh'>('eng');
   const [userTeam, setUserTeam] = useState<'blue' | 'red'>('blue');
-  const [currentPhase, setCurrentPhase] = useState<number>(0);
+const [currentPhase, setCurrentPhase] = useState<number>(0);
   const [selectedRole, setSelectedRole] = useState<string>('all');
   const [selectedHeroes, setSelectedHeroes] = useState<SelectedHeroes>({
     blueBans: [],
@@ -87,6 +87,10 @@ const [resetCounter, setResetCounter] = useState(0);
     { id: 'Roaming', name: '游走', englishName: 'Roaming' },
     { id: 'Farm Lane', name: '发育路', englishName: 'Farm Lane' },
   ];
+
+const handleLanguage = ()=>{
+    setLanguage(prevLanguage => (prevLanguage === 'eng' ? 'zh' : 'eng'));
+}
 
   useEffect(() => {
     if (currentPhase < phases.length) {
@@ -230,10 +234,15 @@ const getRecommendations = (): Recommendations => {
     return currentTeamPicks
       .map(pickId => {
         const hero = getHeroById(pickId);
-        if (hero) {
+        if (hero&&language=='zh') {
           if (hero.combo && hero.combo.includes(heroId)) return hero.chineseName;
           if (hero.counter && hero.counter.includes(heroId)) return hero.chineseName;
           if (hero.beCountered && hero.beCountered.includes(heroId)) return hero.chineseName;
+        }
+ if (hero&&language=='eng') {
+          if (hero.combo && hero.combo.includes(heroId)) return hero.englishName;
+          if (hero.counter && hero.counter.includes(heroId)) return hero.englishName;
+          if (hero.beCountered && hero.beCountered.includes(heroId)) return hero.englishName;
         }
         return null;
       })
@@ -254,7 +263,7 @@ const getRecommendations = (): Recommendations => {
                 userTeam === 'blue' ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'
               }`}
             >
-              Blue Team
+{language == 'eng'?'Blue Team':'蓝色方'}
             </button>
             <button
               onClick={() => setUserTeam('red')}
@@ -262,13 +271,15 @@ const getRecommendations = (): Recommendations => {
                 userTeam === 'red' ? 'bg-red-500 text-white' : 'bg-gray-700 text-gray-300'
               }`}
             >
-              Red Team
+{language == 'eng'?'Red Team':'红色方'}   
             </button>
           </div>
           <div className="text-white text-xl font-bold">
             {getCurrentActionText()}
           </div>
           <div className="flex gap-4">
+<button className={`px-4 py-2 rounded transition-colors duration-300 bg-blue-600`} onClick={handleLanguage}> <span className={`${language=='eng'? 'text-black':'text-gray-700'}`}>English</span> / <span className={`${language=='zh'?'text-black':'text-gray-700'}`}>中文</span></button>
+
             <button
               onClick={handleUndo}
               disabled={history.length === 0}
@@ -278,13 +289,14 @@ const getRecommendations = (): Recommendations => {
                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
               }`}
             >
-              Undo
+{language == 'eng'?'Undo':'撤销'}   
             </button>
             <button
               onClick={resetDraft}
               className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded transition-colors duration-300"
             >
-              Reset Draft
+{language == 'eng'?'Reset Draft':'重置'}   
+
             </button>
           </div>
         </div>
@@ -301,7 +313,8 @@ const getRecommendations = (): Recommendations => {
                 : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
             }`}
           >
-            {role.name}
+{language == 'eng'?role.englishName:role.name}   
+
           </button>
         ))}
       </div>
@@ -311,10 +324,11 @@ const getRecommendations = (): Recommendations => {
         {/* Blue Team Side Panel */}
         <div className="w-32 space-y-4">
           <div className="bg-blue-900/30 p-4 rounded">
-            <h3 className="text-blue-400 font-bold mb-4">Blue Team</h3>
+            <h3 className="text-blue-400 font-bold mb-4">{language == 'eng'?'Blue Team':'蓝方'}   
+</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-red-500 font-bold mb-2">Bans</h4>
+                <h4 className="text-red-500 font-bold mb-2">{language == 'eng'?'Bans':'禁用'}  </h4>
                 <div className="grid grid-cols-3 gap-2">
                  {selectedHeroes.blueBans.map(id => {
           const hero = getHeroById(id);
@@ -328,7 +342,7 @@ const getRecommendations = (): Recommendations => {
                 </div>
               </div>
               <div>
-                <h4 className="text-green-500 font-bold mb-2">Picks</h4>
+                <h4 className="text-green-500 font-bold mb-2">{language == 'eng'?'Picks':'选择'} </h4>
                 <div className="grid gap-2">
                   {selectedHeroes.bluePicks.map(id => {
 const hero = getHeroById(id);
@@ -368,7 +382,7 @@ return hero && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black/60 py-1 px-2">
                    <div className="flex flex-col">
                     <span className="text-xs text-white font-bold">
-                      {item.chineseName}
+{language=='eng'?item.englishName:item.chineseName}
                     </span>
                     {/* <span className="text-xs text-gray-300">
                       {roles.find(r => r.id === item.occupation)?.name}
@@ -396,10 +410,10 @@ return hero && (
         {/* Red Team Side Panel */}
         <div className="w-32 space-y-4">
           <div className="bg-red-900/30 p-4 rounded">
-            <h3 className="text-red-400 font-bold mb-4">Red Team</h3>
+            <h3 className="text-red-400 font-bold mb-4">{language == 'eng'?'Red Team':'红方'}   </h3>
             <div className="space-y-4">
               <div>
-                <h4 className="text-red-500 font-bold mb-2">Bans</h4>
+                <h4 className="text-red-500 font-bold mb-2">{language == 'eng'?'Bans':'禁用'} </h4>
                 <div className="grid grid-cols-3 gap-2">
                      {selectedHeroes.redBans.map(id => {
           const hero = getHeroById(id);
@@ -413,7 +427,7 @@ return hero && (
                 </div>
               </div>
               <div>
-                <h4 className="text-green-500 font-bold mb-2">Picks</h4>
+                <h4 className="text-green-500 font-bold mb-2">{language == 'eng'?'Picks':'选择'} </h4>
                 <div className="grid gap-2">
                      {selectedHeroes.redPicks.map(id => {
 const hero = getHeroById(id);
@@ -437,7 +451,7 @@ return hero && (
           <div className="space-y-6">
 {/* 新添加的对方英雄被克制部分 */}
         <div>
-          <h3 className="text-purple-400 font-bold mb-2">对方英雄被以下英雄克制</h3>
+          <h3 className="text-purple-400 font-bold mb-2">{language=='eng'?`The opponents are countered by the following heroes`:'对方英雄被以下英雄克制'}</h3>
           <div className="grid grid-cols-3 gap-2">
             {getRecommendations().enemyBeCountered.map(heroId => {
               const hero = getHeroById(heroId);
@@ -453,10 +467,9 @@ return hero && (
                     />
                   </div>
                   <div className="mt-1 text-xs text-gray-300 text-center">
-                    <div>{hero.chineseName}</div>
+                    <div>{language=='eng'?hero.englishName:hero.chineseName}</div>
                     <div className="text-purple-400">
-                      克制{sources.join(', ')}
-                    </div>
+{language === 'eng' ? `Counter: ${sources.join(', ')}` : `克制: ${sources.join(', ')}`}                    </div>
                   </div>
                 </div>
               );
@@ -466,7 +479,7 @@ return hero && (
 
 
             <div>
-              <h3 className="text-red-400 font-bold mb-2">对面可能会选择克我方阵容</h3>
+              <h3 className="text-red-400 font-bold mb-2">{language=='eng'?'We are countered by':'我方被以下英雄克制'}</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().beCountered.map(heroId => {
                   const hero = getHeroById(heroId);
@@ -483,7 +496,7 @@ return hero && (
                       <div className="mt-1 text-xs text-gray-300 text-center">
                         <div>{hero.chineseName}</div>
                         <div className="text-red-400">
-                         克制{sources.join(', ')}
+  {language === 'eng' ? `Counter: ${sources.join(', ')}` : `克制: ${sources.join(', ')}`}
                         </div>
                       </div>
                     </div>
@@ -493,7 +506,7 @@ return hero && (
             </div>
 
             <div>
-              <h3 className="text-green-400 font-bold mb-2">Good Combinations</h3>
+              <h3 className="text-green-400 font-bold mb-2">{language=='eng'?'Good Combination':'好配合'}</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().combos.map(heroId => {
                   const hero = getHeroById(heroId);
@@ -510,7 +523,7 @@ return hero && (
                       <div className="mt-1 text-xs text-gray-300 text-center">
                         <div>{hero.chineseName}</div>
                         <div className="text-green-400">
-                          配合: {sources.join(', ')}
+  {language === 'eng' ? `With ${sources.join(', ')}` : `和${sources.join(', ')}配合`}
                         </div>
                       </div>
                     </div>
@@ -519,7 +532,7 @@ return hero && (
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h3 className="text-blue-400 font-bold mb-2">被克制</h3>
               <div className="grid grid-cols-3 gap-2">
                 {getRecommendations().counters.map(heroId => {
@@ -544,9 +557,7 @@ return hero && (
                   );
                 })}
               </div>
-            </div>
-
-
+            </div> */}
 
           </div>
         ) : (
