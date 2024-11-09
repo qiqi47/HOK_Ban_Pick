@@ -1,4 +1,4 @@
- const HeroList = [
+const HeroList = [
   {
     id: 1,
     englishName: "Agudo",
@@ -6,8 +6,8 @@
     imageLink: "/commons/images/f/f8/Agudo_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: '',
-	counter:[50,66],
-	beCountered:[75,44]
+    counter:[50,66],
+    beCountered:[75,44]
   },
   {
     id: 2,
@@ -16,9 +16,9 @@
     imageLink: "/commons/images/6/63/Alessio_Hero_Icon.jpg",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[91,12,28],
-beCountered:[70],
-combo:[65]
+    counter:[91,12,28],
+    beCountered:[70],
+    combo:[65]
   },
   {
     id: 3,
@@ -27,8 +27,8 @@ combo:[65]
     imageLink: "/commons/images/5/5f/Allain_Hero_Icon.jpg",
     occupation: "Clash Lane",
     altOccupation: '',
-	counter:[39,21,85],//黄忠，典韦
-	beCountered:[5,60],//被阿离，马可克制
+    counter:[39,21,85],//黄忠，典韦
+    beCountered:[5,60],//被阿离，马可克制
   },
   {
     id: 4,
@@ -37,8 +37,8 @@ combo:[65]
     imageLink: "/commons/images/5/5a/Angela_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[57],
-beCountered:[86,70]
+    counter:[57],
+    beCountered:[86,70]
   },
   {
     id: 5,
@@ -47,9 +47,9 @@ beCountered:[86,70]
     imageLink: "/commons/images/5/5c/Gong_Sun_Li_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[75,31,71],
-combo:[87,27],
-beCountered:[25,6]//扁鹊，亚瑟
+    counter:[75,31,71],
+    combo:[87,27],
+    beCountered:[25,6]//扁鹊，亚瑟
   },
   {
     id: 6,
@@ -58,8 +58,8 @@ beCountered:[25,6]//扁鹊，亚瑟
     imageLink: "/commons/images/b/b5/Arthur_HOK_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: 'Jungling',
-counter:[59,5],//蒙犽，公孙离
-beCountered:[21,3,55]//被典韦，亚连，吕布克制
+    counter:[59,5],//蒙犽，公孙离
+    beCountered:[21,3,55]//被典韦，亚连，吕布克制
   },
   {
     id: 7,
@@ -68,8 +68,8 @@ beCountered:[21,3,55]//被典韦，亚连，吕布克制
     imageLink: "/commons/images/3/35/Ata_Hero_Icon.jpg",
     occupation: "Clash Lane",
     altOccupation: '',
-counter:[79],
-beCountered:[15,57,72]
+    counter:[79],
+    beCountered:[15,57,72]
   },
   {
     id: 8,
@@ -78,8 +78,8 @@ beCountered:[15,57,72]
     imageLink: "/commons/images/4/45/Athena_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: '',
-counter:[],
-beCountered:[63,22]
+    counter:[],
+    beCountered:[63,22]
   },
   {
     id: 9,
@@ -88,9 +88,9 @@ beCountered:[63,22]
     imageLink: "/commons/images/5/5f/Da_Siming_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: 'Clash Lane',
-counter:[10],
-	beCountered:[59,38,1],//不知火舞,宫本
-	combo:[91]//周瑜
+    counter:[10],
+    beCountered:[59,38,1],//不知火舞,宫本
+    combo:[91]//周瑜
   },
   {
     id: 10,
@@ -99,8 +99,8 @@ counter:[10],
     imageLink: "/commons/images/1/12/Kuang_Tie_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: '',
-counter:[77],
-beCountered:[21,9,26]
+    counter:[77],
+    beCountered:[21,9,26]
   },
   {
     id: 11,
@@ -109,8 +109,8 @@ beCountered:[21,9,26]
     imageLink: "/commons/images/3/3f/Butterfly_Hero_Icon_2019.png",
     occupation: "Jungling",
     altOccupation: '',
-couter:[33,41],
-beCountered:[77,35],
+    couter:[33,41],
+    beCountered:[77,35],
 
   },
   {
@@ -120,8 +120,8 @@ beCountered:[77,35],
     imageLink: "/commons/images/f/f8/Cai_Wenji_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: '',
-beCountered:[68], //宫本
-counter:[42,88,76]//克诸葛亮，杨玉环，守约
+    beCountered:[68], //宫本
+    counter:[42,88,76]//克诸葛亮，杨玉环，守约
   },
   {
     id: 13,
@@ -130,8 +130,8 @@ counter:[42,88,76]//克诸葛亮，杨玉环，守约
     imageLink: "/commons/images/0/00/Cao_Cao_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[1,25],
-beCountered:[5,92,59]
+    counter:[1,25],
+    beCountered:[5,92,59]
   },
   {
     id: 14,
@@ -140,8 +140,8 @@ beCountered:[5,92,59]
     imageLink: "/commons/images/b/b2/Charlotte_Hero_Icon.jpg",
     occupation: "Clash Lane",
     altOccupation: '',
-counter:[77],
-beCountered:[6,50]
+    counter:[77],
+    beCountered:[6,50]
   },
   {
     id: 15,
@@ -150,8 +150,8 @@ beCountered:[6,50]
     imageLink: "/commons/images/1/1f/Yun_Zhongjun_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: '',
-counter:[7],
-beCountered:[88]
+    counter:[7],
+    beCountered:[88]
   },
   {
     id: 16,
@@ -160,9 +160,9 @@ beCountered:[88]
     imageLink: "/commons/images/1/14/Yu_Ji_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-combo:[17],//大乔
-counter:[81,69,5],
-beCountered:[75,59]
+    combo:[17],//大乔
+    counter:[81,69,5],
+    beCountered:[75,59]
   },
   {
     id: 17,
@@ -171,9 +171,9 @@ beCountered:[75,59]
     imageLink: "/commons/images/3/30/Da_Qiao_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: 'Mid Lane',
-counter:[20,1,37],
-beCountered:[5,34],
-combo:[16,30,68]//虞姬，老夫子，宫本
+    counter:[20,1,37],
+    beCountered:[5,34],
+    combo:[16,30,68]//虞姬，老夫子，宫本
 
   },
   {
@@ -183,8 +183,8 @@ combo:[16,30,68]//虞姬，老夫子，宫本
     imageLink: "/commons/images/3/39/Daji_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[59,32],
-beCountered:[1,49]
+    counter:[59,32],
+    beCountered:[1,49]
   },
   {
     id: 19,
@@ -193,8 +193,8 @@ beCountered:[1,49]
     imageLink: "/commons/images/c/c8/Dharma_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: 'Clash Lane',
-counter:[77,94,28],
-beCountered:[83,21,41]
+    counter:[77,94,28],
+    beCountered:[83,21,41]
   },
   {
     id: 20,
@@ -203,9 +203,9 @@ beCountered:[83,21,41]
     imageLink: "/commons/images/9/92/Di_Renjie_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[43],
-beCountered:[42,28,31],
-combo:[12]
+    counter:[43],
+    beCountered:[42,28,31],
+    combo:[12]
   },
   {
     id: 21,
@@ -214,8 +214,8 @@ combo:[12]
     imageLink: "/commons/images/e/ec/Dian_Wei_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: 'Jungling',
-counter:[68,34],
-beCountered:[3,28,58]
+    counter:[68,34],
+    beCountered:[3,28,58]
   },
   {
     id: 22,
@@ -224,8 +224,8 @@ beCountered:[3,28,58]
     imageLink: "/commons/images/a/a9/KOG_Diaochan_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-beCountered:[65],
-counter:[73,92],
+    beCountered:[65],
+    counter:[73,92],
   },
   {
     id: 23,
@@ -234,8 +234,8 @@ counter:[73,92],
     imageLink: "/commons/images/4/43/Doria_Hero_Icon.jpg",
     occupation: "Roaming",
     altOccupation: '',
-counter:[92,88],
-	combo:[9,26,75,88,68] //亚连，夏侯，婉儿，杨玉环
+    counter:[92,88],
+    combo:[9,26,75,88,68] //亚连，夏侯，婉儿，杨玉环
   },
   {
     id: 24,
@@ -244,8 +244,8 @@ counter:[92,88],
     imageLink: "/commons/images/7/73/East_Emperor_Taiyi_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: '',
-counter:[67],
-	beCountered:[70,26]//哪吒，夏侯
+    counter:[67],
+    beCountered:[70,26]//哪吒，夏侯
   },
   {
     id: 25,
@@ -254,9 +254,9 @@ counter:[67],
     imageLink: "/commons/images/2/26/Bian_Que_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-	combo:[78,26,9],//孙膑，夏侯,猪八戒
-	beCountered:[74,35],//王昭君，鬼谷子
-	counter:[76,70]//克守约，哪吒
+    combo:[78,26,9],//孙膑，夏侯,猪八戒
+    beCountered:[74,35],//王昭君，鬼谷子
+    counter:[76,70]//克守约，哪吒
   },
   {
     id: 26,
@@ -265,9 +265,9 @@ counter:[67],
     imageLink: "/commons/images/5/56/Xiahou_Dun_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: 'Roaming',
-	combo:[23], //朵莉亚
-counter:[32,30,10],
-beCountered:[45,55,37]
+    combo:[23], //朵莉亚
+    counter:[32,30,10],
+    beCountered:[45,55,37]
   },
   {
     id: 27,
@@ -276,8 +276,8 @@ beCountered:[45,55,37]
     imageLink: "/commons/images/b/be/Shao_Siyuan_Hero_Icon.jpg",
     occupation: "Roaming",
     altOccupation: '',
-counter:[5],
-combo:[5,44]
+    counter:[5],
+    combo:[5,44]
   },
   {
     id: 28,
@@ -286,9 +286,9 @@ combo:[5,44]
     imageLink: "/commons/images/8/87/Ailin_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[20,92,21],
-beCountered:[65],
-combo:[65]
+    counter:[20,92,21],
+    beCountered:[65],
+    combo:[65]
   },
   {
     id: 29,
@@ -305,9 +305,9 @@ combo:[65]
     imageLink: "/commons/images/7/7b/Lao_Fu_Zi_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: '',
-combo:[17,12],//大乔，蔡文姬
-counter:[88], //杨玉环
-beCountered:[26,53] //刘禅，夏侯
+    combo:[17,12],//大乔，蔡文姬
+    counter:[88], //杨玉环
+    beCountered:[26,53] //刘禅，夏侯
   },
   {
     id: 31,
@@ -316,8 +316,8 @@ beCountered:[26,53] //刘禅，夏侯
     imageLink: "/commons/images/6/6d/Ganjiang_Moye_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[1,92,46],
-beCountered:[5,34]
+    counter:[1,92,46],
+    beCountered:[5,34]
   },
   {
     id: 32,
@@ -326,8 +326,8 @@ beCountered:[5,34]
     imageLink: "/commons/images/d/db/Gao_Jianli_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[64],
-beCountered:[63]
+    counter:[64],
+    beCountered:[63]
   },
   {
     id: 33,
@@ -336,8 +336,8 @@ beCountered:[63]
     imageLink: "/commons/images/b/b8/Jia_Luo_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[87],
-beCountered:[73,11]
+    counter:[87],
+    beCountered:[73,11]
   },
   {
     id: 34,
@@ -346,8 +346,8 @@ beCountered:[73,11]
     imageLink: "/commons/images/2/21/Guan_Yu_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: '',
-counter:[31],
-beCountered:[21,61] //典韦
+    counter:[31],
+    beCountered:[21,61] //典韦
   },
   {
     id: 35,
@@ -356,9 +356,9 @@ beCountered:[21,61] //典韦
     imageLink: "/commons/images/b/bd/Gui_Guzi_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: '',
-	combo:[52,74,84],//刘备，王昭君
-counter:[12,65,73],
-	beCountered:[87,92,77]//瑶，庄周
+    combo:[52,74,84],//刘备，王昭君
+    counter:[12,65,73],
+    beCountered:[87,92,77]//瑶，庄周
   },
   {
     id: 36,
@@ -367,7 +367,7 @@ counter:[12,65,73],
     imageLink: "/commons/images/a/af/Han_Xin_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: '',
-counter:[71,13,74],
+    counter:[71,13,74],
   },
   {
     id: 37,
@@ -376,8 +376,8 @@ counter:[71,13,74],
     imageLink: "/commons/images/4/47/Heino_Hero_Icon.jpg",
     occupation: "Mid Lane",
     altOccupation: 'Clash Lane',
-counter:[92,1],//鱼，阿古朵
-beCountered:[5]//阿离
+    counter:[92,1],//鱼，阿古朵
+    beCountered:[5]//阿离
   },
   {
     id: 38,
@@ -386,8 +386,8 @@ beCountered:[5]//阿离
     imageLink: "/commons/images/4/49/Hou_Yi_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[],
-combo:[65]
+    counter:[],
+    combo:[65]
 
   },
   {
@@ -397,8 +397,8 @@ combo:[65]
     imageLink: "/commons/images/0/0a/Huang_Zhong_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[42,33],
-beCountered:[35,60]
+    counter:[42,33],
+    beCountered:[35,60]
   },
   {
     id: 40,
@@ -407,8 +407,8 @@ beCountered:[35,60]
     imageLink: "/commons/images/6/6f/Jing_HOK_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: '',
-counter:[],
-beCountered:[6]
+    counter:[],
+    beCountered:[6]
   },
   {
     id: 41,
@@ -417,8 +417,8 @@ beCountered:[6]
     imageLink: "/commons/images/a/aa/Kai_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: 'Clash Lane',
-counter:[52],
-beCountered:[69,37]
+    counter:[52],
+    beCountered:[69,37]
   },
   {
     id: 42,
@@ -427,9 +427,9 @@ beCountered:[69,37]
     imageLink: "/commons/images/4/4e/Zhuge_Liang_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[52,36,21],
-	beCountered:[39,25,12],//黄忠，扁鹊，蔡文姬
-	combo:[65]//明世隐
+    counter:[52,36,21],
+    beCountered:[39,25,12],//黄忠，扁鹊，蔡文姬
+    combo:[65]//明世隐
   },
   {
     id: 43,
@@ -438,8 +438,8 @@ counter:[52,36,21],
     imageLink: "/commons/images/b/b4/Zhong_Kui_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: '',
-beCountered:[92,20],
-counter:[65,39]
+    beCountered:[92,20],
+    counter:[65,39]
   },
   {
     id: 44,
@@ -448,8 +448,8 @@ counter:[65,39]
     imageLink: "/commons/images/4/40/Sun_Shangxiang_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: '',
-counter:[72,77,76],
-beCountered:[]
+    counter:[72,77,76],
+    beCountered:[]
   },
   {
     id: 45,
@@ -458,8 +458,8 @@ beCountered:[]
     imageLink: "/commons/images/c/c1/Zhen_Ji_2019.jpg",
     occupation: "Mid Lane",
     altOccupation: '',
-counter:[7],
-beCountered:[64,47]
+    counter:[7],
+    beCountered:[64,47]
   },
   {
     id: 46,
@@ -468,8 +468,8 @@ beCountered:[64,47]
     imageLink: "/commons/images/c/c2/Lan_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: '',
-counter:[1,37],
-beCountered:[31]
+    counter:[1,37],
+    beCountered:[31]
   },
   {
     id: 47,
@@ -478,8 +478,8 @@ beCountered:[31]
     imageLink: "/commons/images/9/9e/Li_Bai_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: '',
-counter:[45,94,69],
-beCountered:[6]
+    counter:[45,94,69],
+    beCountered:[6]
   },
   {
     id: 48,
@@ -488,29 +488,29 @@ beCountered:[6]
     imageLink: "/commons/images/4/4d/Li_Xin_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: '',
-counter:[55,91],//吕布，甄姬
-beCountered:[85,31] //杨戬，干将
+    counter:[55,91],//吕布，甄姬
+    beCountered:[85,31] //杨戬，干将
   },
   {
-	id:49,
+    id:49,
     englishName: "Lian Po",
     chineseName: "廉颇",
     imageLink: "/commons/images/2/20/Lian_Po_Hero_Icon.png",
     occupation: "Clash Lane",
-	altOccupation:'Roaming',
-counter:[79,18],
-beCountered:[92,37]
+    altOccupation:'Roaming',
+    counter:[79,18],
+    beCountered:[92,37]
   },
-    {
+  {
     id: 50,
     englishName: "Liang",
     chineseName: "张良",
     imageLink: "/commons/images/b/bd/Zhang_Liang_2019.jpg",
     occupation: "Mid Lane",
     altOccupation: "Roaming",
-beCountered:[51], //刘邦
-combo:[74],//王昭君
-counter:[5,47]//克阿离，李白
+    beCountered:[51], //刘邦
+    combo:[74],//王昭君
+    counter:[5,47]//克阿离，李白
   },
   {
     id: 51,
@@ -519,9 +519,9 @@ counter:[5,47]//克阿离，李白
     imageLink: "/commons/images/6/67/Liu_Bang_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "Roaming",
-combo:[70],//哪吒
-	beCountered: [30,63,58], //被老夫子，梦奇，露娜克
-counter:[50,32]//克张良
+    combo:[70],//哪吒
+    beCountered: [30,63,58], //被老夫子，梦奇，露娜克
+    counter:[50,32]//克张良
   },
   {
     id: 52,
@@ -530,9 +530,9 @@ counter:[50,32]//克张良
     imageLink: "/commons/images/4/42/Liu_Bei_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "",
-counter:[81,77,19],
-beCountered:[42,41],
-combo:[35]
+    counter:[81,77,19],
+    beCountered:[42,41],
+    combo:[35]
   },
   {
     id: 53,
@@ -541,9 +541,9 @@ combo:[35]
     imageLink: "/commons/images/7/76/Liu_Shan_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
-counter:[30,39],
-beCountered:[92,20,70],
-combo:[64,1]
+    counter:[30,39],
+    beCountered:[92,20,70],
+    combo:[64,1]
   },
   {
     id: 54,
@@ -552,8 +552,8 @@ combo:[64,1]
     imageLink: "/commons/images/d/d0/Aoyin_Hero_Icon.jpg",
     occupation: "Farm Lane",
     altOccupation: "",
-counter:[75,60,3],
-beCountered:[65,64]
+    counter:[75,60,3],
+    beCountered:[65,64]
   },
   {
     id: 55,
@@ -562,9 +562,9 @@ beCountered:[65,64]
     imageLink: "/commons/images/2/2f/Lu_Bu_2022_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "",
-combo:[23],//朵莉亚
-counter:[63,26],//梦奇，夏侯	
-beCountered:[3,48,37]//亚连，李信
+    combo:[23],//朵莉亚
+    counter:[63,26],//梦奇，夏侯	
+    beCountered:[3,48,37]//亚连，李信
   },
   {
     id: 56,
@@ -581,8 +581,8 @@ beCountered:[3,48,37]//亚连，李信
     imageLink: "/commons/images/3/3a/Luban_No.7_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: "",
-counter:[7],
-beCountered:[4,52]
+    counter:[7],
+    beCountered:[4,52]
   },
   {
     id: 58,
@@ -591,8 +591,8 @@ beCountered:[4,52]
     imageLink: "/commons/images/7/74/Luna_2019.jpg",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-counter:[35,92],
-beCountered:[18,6]
+    counter:[35,92],
+    beCountered:[18,6]
   },
   {
     id: 59,
@@ -601,8 +601,8 @@ beCountered:[18,6]
     imageLink: "/commons/images/1/13/Mai_Shiranui_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-counter:[71,94],
-beCountered:[6,18]
+    counter:[71,94],
+    beCountered:[6,18]
 
   },
   {
@@ -612,9 +612,9 @@ beCountered:[6,18]
     imageLink: "/commons/images/5/58/Marco_Polo_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: "",
-counter:[39,3],
-beCountered:[87,54],
-combo:[87]
+    counter:[39,3],
+    beCountered:[87,54],
+    combo:[87]
   },
   {
     id: 61,
@@ -623,8 +623,8 @@ combo:[87]
     imageLink: "/commons/images/d/d2/Ji_Xiaoman_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "",
-counter:[72,34,71],
-beCountered:[6,79,83,10]
+    counter:[72,34,71],
+    beCountered:[6,79,83,10]
   },
   {
     id: 62,
@@ -633,8 +633,8 @@ beCountered:[6,79,83,10]
     imageLink: "/commons/images/6/67/Meng_Ya_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: "",
-counter:[1,90],
-beCountered:[73,34,60]
+    counter:[1,90],
+    beCountered:[73,34,60]
   },
   {
     id: 63,
@@ -643,8 +643,8 @@ beCountered:[73,34,60]
     imageLink: "/commons/images/8/8a/Meng_Qi_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "",
-counter:[68,32,77],//克宫本
-beCountered:[55,1]
+    counter:[68,32,77],//克宫本
+    beCountered:[55,1]
   },
   {
     id: 64,
@@ -653,8 +653,8 @@ beCountered:[55,1]
     imageLink: "/commons/images/0/03/Milady_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-counter:[91,50],
-beCountered:[75,32,94]
+    counter:[91,50],
+    beCountered:[75,32,94]
   },
   {
     id: 65,
@@ -663,9 +663,9 @@ beCountered:[75,32,94]
     imageLink: "/commons/images/c/c4/Ming_Shiyin_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
-combo:[42,44],//诸葛亮，孙尚香
-counter:[92,77,28],
-beCountered:[35,43]
+    combo:[42,44],//诸葛亮，孙尚香
+    counter:[92,77,28],
+    beCountered:[35,43]
 
   },
   {
@@ -675,9 +675,9 @@ beCountered:[35,43]
     imageLink: "/commons/images/5/5f/Mozi_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "Roaming",
-counter:[30,81,94],
-beCountered:[1,9,82],
-combo:[77]
+    counter:[30,81,94],
+    beCountered:[1,9,82],
+    combo:[77]
   },
   {
     id: 67,
@@ -686,8 +686,8 @@ combo:[77]
     imageLink: "/commons/images/d/d4/Hua_Mulan_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "",
-counter:[30,74,94],
-beCountered:[24,50]
+    counter:[30,74,94],
+    beCountered:[24,50]
   },
   {
     id: 68,
@@ -696,9 +696,9 @@ beCountered:[24,50]
     imageLink: "/commons/images/6/6c/Miyamoto_Musashi_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-	counter:[7,9,12,71], //猪八戒,大司命,蔡文姬，女娲
-	beCountered:[63,91,21], //梦奇,周瑜
-	combo:[17,23]//大桥
+    counter:[7,9,12,71], //猪八戒,大司命,蔡文姬，女娲
+    beCountered:[63,91,21], //梦奇,周瑜
+    combo:[17,23]//大桥
   },
   {
     id: 69,
@@ -707,8 +707,8 @@ beCountered:[24,50]
     imageLink: "/commons/images/a/ab/Nakoruru_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "",
-counter:[52,41,7],
-beCountered:[81,47,16]
+    counter:[52,41,7],
+    beCountered:[81,47,16]
   },
   {
     id: 70,
@@ -717,8 +717,8 @@ beCountered:[81,47,16]
     imageLink: "/commons/images/d/d7/Nezha_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-combo:[51],//刘邦
-	beCountered:[42],//被扁鹊克
+    combo:[51],//刘邦
+    beCountered:[42],//被扁鹊克
 
   },
   {
@@ -728,8 +728,8 @@ combo:[51],//刘邦
     imageLink: "/commons/images/0/03/Nuwa_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-counter:[76,39,47,49],
-beCountered:[5,59]
+    counter:[76,39,47,49],
+    beCountered:[5,59]
   },
   {
     id: 72,
@@ -738,8 +738,8 @@ beCountered:[5,59]
     imageLink: "/commons/images/1/16/Pei_Qin_Hu_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "",
-counter:[70,71],
-beCountered:[61,38,93]
+    counter:[70,71],
+    beCountered:[61,38,93]
   },
   {
     id: 73,
@@ -748,8 +748,8 @@ beCountered:[61,38,93]
     imageLink: "/commons/images/c/c6/Lan_Ling_Wan_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "",
-counter:[33,71,31],
-beCountered:[76,35]
+    counter:[33,71,31],
+    beCountered:[76,35]
   },
   {
     id: 74,
@@ -758,9 +758,9 @@ beCountered:[76,35]
     imageLink: "/commons/images/1/1f/Wang_Zhaojun_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-	combo:[50], //张良
-	counter:[25,65],//扁鹊
-	beCountered:[36,67,92]//韩信,木兰，鱼
+    combo:[50], //张良
+    counter:[25,65],//扁鹊
+    beCountered:[36,67,92]//韩信,木兰，鱼
   },
   {
     id: 75,
@@ -769,8 +769,8 @@ beCountered:[76,35]
     imageLink: "/commons/images/0/0a/Shangguan_Wan%27er_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-	counter:[94,1,64],
-	beCountered:[54,5]//熬隐
+    counter:[94,1,64],
+    beCountered:[54,5]//熬隐
   },
   {
     id: 76,
@@ -779,9 +779,9 @@ beCountered:[76,35]
     imageLink: "/commons/images/9/9c/BaiLi_ShouYue_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: "",
-counter:[35,73],
-beCountered:[64,25],
-combo:[66]
+    counter:[35,73],
+    beCountered:[64,25],
+    combo:[66]
 
   },
   {
@@ -791,9 +791,9 @@ combo:[66]
     imageLink: "/commons/images/d/d9/Sima_Yi_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "",
-combo:[35,90],
-counter:[35],
-beCountered:[90]
+    combo:[35,90],
+    counter:[35],
+    beCountered:[90]
 
   },
   {
@@ -803,7 +803,7 @@ beCountered:[90]
     imageLink: "/commons/images/d/d9/Sun_Bin_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
-	combo:[25,26,9,7]//扁鹊，夏侯,猪八戒
+    combo:[25,26,9,7]//扁鹊，夏侯,猪八戒
   },
   {
     id: 79,
@@ -812,8 +812,8 @@ beCountered:[90]
     imageLink: "/commons/images/d/d9/Sun_Ce_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-counter:[65],
-beCountered:[92,7]//庄周，猪八戒
+    counter:[65],
+    beCountered:[92,7]//庄周，猪八戒
   },
   {
     id: 80,
@@ -822,8 +822,8 @@ beCountered:[92,7]//庄周，猪八戒
     imageLink: "/commons/images/b/b3/Ukyo_Tachibana_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-counter:[72,63],
-beCountered:[6,61]
+    counter:[72,63],
+    beCountered:[6,61]
   },
   {
     id: 81,
@@ -832,8 +832,8 @@ beCountered:[6,61]
     imageLink: "/commons/images/6/6f/Sun_Wukong_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "",
-counter:[69,5],
-beCountered:[53,16,82]
+    counter:[69,5],
+    beCountered:[53,16,82]
   },
   {
     id: 82,
@@ -842,8 +842,8 @@ beCountered:[53,16,82]
     imageLink: "/commons/images/e/e2/Zhong_Wu_Yan_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-counter:[59],
-beCountered:[70,55,37]
+    counter:[59],
+    beCountered:[70,55,37]
   },
   {
     id: 83,
@@ -852,9 +852,9 @@ beCountered:[70,55,37]
     imageLink: "/commons/images/a/ac/Xiang_Yu_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "",
-combo:[39],//黄忠
-counter:[5,59,19],//克阿离，火舞，达摩
-beCountered:[9,37,7]//大司命，海诺，猪八戒
+    combo:[39],//黄忠
+    counter:[5,59,19],//克阿离，火舞，达摩
+    beCountered:[9,37,7]//大司命，海诺，猪八戒
   },
   {
     id: 84,
@@ -863,9 +863,9 @@ beCountered:[9,37,7]//大司命，海诺，猪八戒
     imageLink: "/commons/images/f/f9/Xiao_Qiao_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-counter:[5],
-beCountered:[39,7],
-combo:[35]
+    counter:[5],
+    beCountered:[39,7],
+    combo:[35]
   },
   {
     id: 85,
@@ -874,8 +874,8 @@ combo:[35]
     imageLink: "/commons/images/8/86/Yang_Jian_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-counter:[66],
-beCountered:[7,21,3]
+    counter:[66],
+    beCountered:[7,21,3]
   },
   {
     id: 86,
@@ -884,8 +884,8 @@ beCountered:[7,21,3]
     imageLink: "/commons/images/4/4d/Yao_Male_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: "Jungling",
-counter:[1,3,4],
-beCountered:[6,18]
+    counter:[1,3,4],
+    beCountered:[6,18]
   },
   {
     id: 87,
@@ -894,9 +894,9 @@ beCountered:[6,18]
     imageLink: "/commons/images/d/d3/Yao_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
-counter:[35,60,70],
-combo:[60,5,40],
-beCountered:[33]
+    counter:[35,60,70],
+    combo:[60,5,40],
+    beCountered:[33]
   },
   {
     id: 88,
@@ -905,9 +905,9 @@ beCountered:[33]
     imageLink: "/commons/images/7/76/Yang_Yuhuan_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "Jungling",
-combo:[23],
-beCountered:[30,57,12],
-counter:[31,15,49]//干将
+    combo:[23],
+    beCountered:[30,57,12],
+    counter:[31,15,49]//干将
   },
   {
     id: 89,
@@ -916,8 +916,8 @@ counter:[31,15,49]//干将
     imageLink: "/commons/images/c/cb/Li_Yuanfang_Hero_Icon.png",
     occupation: "Farm Lane",
     altOccupation: "",
-counter:[73,35,11],
-beCountered:[68]
+    counter:[73,35,11],
+    beCountered:[68]
   },
   {
     id: 90,
@@ -926,8 +926,8 @@ beCountered:[68]
     imageLink: "/commons/images/9/9e/Zhang_Fei_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
-counter:[64,77],
-beCountered:[62,20,25]
+    counter:[64,77],
+    beCountered:[62,20,25]
   },
 
   {
@@ -937,9 +937,9 @@ beCountered:[62,20,25]
     imageLink: "/commons/images/4/4a/Zhou_Yu_Hero_Icon.png",
     occupation: "Mid Lane",
     altOccupation: "",
-combo:[9],//大司命,
-counter:[68,7],
-beCountered:[2]
+    combo:[9],//大司命,
+    counter:[68,7],
+    beCountered:[2]
   },
   {
     id: 92,
@@ -948,8 +948,8 @@ beCountered:[2]
     imageLink: "/commons/images/3/31/Zhuang_Zhou_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "Clash Lane",
-counter:[43,79,35],//克钟馗，孙策，鬼,
-beCountered:[37,65]//海诺，小明
+    counter:[43,79,35],//克钟馗，孙策，鬼,
+    beCountered:[37,65]//海诺，小明
   },
   {
     id: 93,
@@ -958,8 +958,8 @@ beCountered:[37,65]//海诺，小明
     imageLink: "/commons/images/9/97/Zhao_Yun_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-counter:[72],
-beCountered:[93,46,35]
+    counter:[72],
+    beCountered:[93,46,35]
   },
   {
     id: 94,
@@ -968,9 +968,9 @@ beCountered:[93,46,35]
     imageLink: "/commons/images/3/33/Jiang_Ziya_Hero_Icon_2022.jpg",
     occupation: "Mid Lane",
     altOccupation: "Roaming",
-combo:[],
-counter:[64,1],
-beCountered:[75,59]
+    combo:[],
+    counter:[64,1],
+    beCountered:[75,59]
   },
   {
     id: 95,
@@ -979,9 +979,9 @@ beCountered:[75,59]
     imageLink: "/commons/images/3/33/Jiang_Ziya_Hero_Icon_2022.jpg",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-combo:[],
-counter:[66,30],
-beCountered:[92,41]
+    combo:[],
+    counter:[66,30],
+    beCountered:[92,41]
   }
 ];
 export default HeroList;

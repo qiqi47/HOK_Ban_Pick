@@ -19,6 +19,7 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+    'indent': ['error', 2],                     // 使用2空格缩进
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

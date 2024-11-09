@@ -46,39 +46,39 @@ const Dashboard: React.FC = () => {
     { team: 'red', action: 'pick', text: 'Red Pick 5' },
   ];
 
-const [phases, setPhases] = useState<Phase[]>(normalPhases);
-const [key, setKey] = useState(0);
-const handlePhase = (newPhases: Phase[])=>{
-		setPhases(newPhases);
-setKey(key+1);
-	}
+  const [phases, setPhases] = useState<Phase[]>(normalPhases);
+  const [key, setKey] = useState(0);
+  const handlePhase = (newPhases: Phase[])=>{
+    setPhases(newPhases);
+    setKey(key+1);
+  }
 
 
   return (
     <div>
-		<div>
-			<div className='flex justify-between items-center p-4 bg-blue-800 text-white flex-row'>
-				<h3>Honor of Kings Ban/Pick Simulator</h3>
-			<div className='gap-4 flex flex-row'>
-			<button
-				className={`cursor:pointer text-black ${phases.length === normalPhases.length ? 'underline' : ''}`}
-				onClick={() => handlePhase(normalPhases)}
-				>
+      <div>
+        <div className='flex justify-between items-center p-4 bg-blue-800 text-white flex-row'>
+          <h3>Honor of Kings Ban/Pick Simulator</h3>
+          <div className='gap-4 flex flex-row'>
+            <button
+              className={`cursor:pointer text-black ${phases.length === normalPhases.length ? 'underline' : ''}`}
+              onClick={() => handlePhase(normalPhases)}
+            >
 				Normal/Ranking (2 bans)
-			</button>
-			<button
-			className={`cursor:pointer text-black ${phases.length === matchPhases.length ? 'underline' : ''}`}
-			onClick={() => handlePhase(matchPhases)}
-			>
+            </button>
+            <button
+              className={`cursor:pointer text-black ${phases.length === matchPhases.length ? 'underline' : ''}`}
+              onClick={() => handlePhase(matchPhases)}
+            >
 				Match (4 bans)
-			</button>
-		</div>
-			<img src='/github-mark-white.png' className='w-8 h-8 cursor-pointer' onClick={()=>window.open('https://github.com/qiqi47')}/>
-			</div>
-		</div>
-<div key={key}>
+            </button>
+          </div>
+          <img src='/github-mark-white.png' className='w-8 h-8 cursor-pointer' onClick={()=>window.open('https://github.com/qiqi47')}/>
+        </div>
+      </div>
+      <div key={key}>
 	  <GameBanPickPanel phases={phases}/>
-</div>
+      </div>
     </div>
   );
 };
