@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
               className={`cursor:pointer bg-slate-200 text-black ${phases.length === normalPhases.length ? 'underline' : ''}`}
               onClick={() => handlePhase(normalPhases)}
             >
-				Normal/Ranking (2 bans)
+				Ranking (2 bans)
             </button>
             <button
               className={`cursor:pointer bg-slate-200 text-black ${phases.length === matchPhases.length ? 'underline' : ''}`}
