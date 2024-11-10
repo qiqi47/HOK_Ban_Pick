@@ -61,13 +61,13 @@ const Dashboard: React.FC = () => {
           <h3>Honor of Kings Ban/Pick Simulator</h3>
           <div className='gap-4 flex flex-row'>
             <button
-              className={`cursor:pointer text-black ${phases.length === normalPhases.length ? 'underline' : ''}`}
+              className={`cursor:pointer bg-slate-200 text-black ${phases.length === normalPhases.length ? 'underline' : ''}`}
               onClick={() => handlePhase(normalPhases)}
             >
 				Normal/Ranking (2 bans)
             </button>
             <button
-              className={`cursor:pointer text-black ${phases.length === matchPhases.length ? 'underline' : ''}`}
+              className={`cursor:pointer bg-slate-200 text-black ${phases.length === matchPhases.length ? 'underline' : ''}`}
               onClick={() => handlePhase(matchPhases)}
             >
 				Match (4 bans)
