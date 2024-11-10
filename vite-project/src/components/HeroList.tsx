@@ -48,7 +48,7 @@ const HeroList = [
     occupation: "Farm Lane",
     altOccupation: '',
     counter:[75,31,71],
-    combo:[87,27],
+    combo:[87,27,17],
     beCountered:[25,6]//扁鹊，亚瑟
   },
   {
@@ -68,6 +68,7 @@ const HeroList = [
     imageLink: "/commons/images/3/35/Ata_Hero_Icon.jpg",
     occupation: "Clash Lane",
     altOccupation: '',
+    combo:[78],
     counter:[79],
     beCountered:[15,57,72]
   },
@@ -78,8 +79,9 @@ const HeroList = [
     imageLink: "/commons/images/4/45/Athena_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: '',
-    counter:[],
-    beCountered:[63,22]
+    counter:[43],
+    beCountered:[63,22],
+    combo:[62]
   },
   {
     id: 9,
@@ -162,7 +164,7 @@ const HeroList = [
     altOccupation: '',
     combo:[17],//大乔
     counter:[81,69,5],
-    beCountered:[75,59]
+    beCountered:[1,75,59]
   },
   {
     id: 17,
@@ -265,7 +267,7 @@ const HeroList = [
     imageLink: "/commons/images/5/56/Xiahou_Dun_Hero_Icon.png",
     occupation: "Clash Lane",
     altOccupation: 'Roaming',
-    combo:[23], //朵莉亚
+    combo:[23,78], //朵莉亚
     counter:[32,30,10],
     beCountered:[45,55,37]
   },
@@ -306,7 +308,7 @@ const HeroList = [
     occupation: "Clash Lane",
     altOccupation: '',
     combo:[17,12],//大乔，蔡文姬
-    counter:[88], //杨玉环
+    counter:[88,78], //杨玉环
     beCountered:[26,53] //刘禅，夏侯
   },
   {
@@ -337,7 +339,8 @@ const HeroList = [
     occupation: "Farm Lane",
     altOccupation: '',
     counter:[87],
-    beCountered:[73,11]
+    beCountered:[73,11],
+    combo:[65]
   },
   {
     id: 34,
@@ -377,7 +380,7 @@ const HeroList = [
     occupation: "Mid Lane",
     altOccupation: 'Clash Lane',
     counter:[92,1],//鱼，阿古朵
-    beCountered:[5]//阿离
+    beCountered:[5,68]//阿离
   },
   {
     id: 38,
@@ -407,8 +410,9 @@ const HeroList = [
     imageLink: "/commons/images/6/6f/Jing_HOK_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: '',
-    counter:[],
-    beCountered:[6]
+    counter:[3],
+    beCountered:[6],
+    combo:[5]
   },
   {
     id: 41,
@@ -449,7 +453,8 @@ const HeroList = [
     occupation: "Farm Lane",
     altOccupation: '',
     counter:[72,77,76],
-    beCountered:[]
+    beCountered:[],
+    combo:[65,27]
   },
   {
     id: 45,
@@ -468,7 +473,7 @@ const HeroList = [
     imageLink: "/commons/images/c/c2/Lan_Hero_Icon.jpg",
     occupation: "Jungling",
     altOccupation: '',
-    counter:[1,37],
+    counter:[1,37,94],
     beCountered:[31]
   },
   {
@@ -634,7 +639,8 @@ const HeroList = [
     occupation: "Farm Lane",
     altOccupation: "",
     counter:[1,90],
-    beCountered:[73,34,60]
+    beCountered:[73,34,60],
+    combo:[8]
   },
   {
     id: 63,
@@ -654,7 +660,8 @@ const HeroList = [
     occupation: "Mid Lane",
     altOccupation: "",
     counter:[91,50],
-    beCountered:[75,32,94]
+    beCountered:[75,32,94],
+    combo:[1]
   },
   {
     id: 65,
@@ -663,7 +670,7 @@ const HeroList = [
     imageLink: "/commons/images/c/c4/Ming_Shiyin_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
-    combo:[42,44],//诸葛亮，孙尚香
+    combo:[42,44,38,33,28],//诸葛亮，孙尚香
     counter:[92,77,28],
     beCountered:[35,43]
 
@@ -696,7 +703,7 @@ const HeroList = [
     imageLink: "/commons/images/6/6c/Miyamoto_Musashi_Hero_Icon.png",
     occupation: "Jungling",
     altOccupation: "Clash Lane",
-    counter:[7,9,12,71], //猪八戒,大司命,蔡文姬，女娲
+    counter:[7,9,12,71,37], //猪八戒,大司命,蔡文姬，女娲
     beCountered:[63,91,21], //梦奇,周瑜
     combo:[17,23]//大桥
   },
@@ -719,7 +726,7 @@ const HeroList = [
     altOccupation: "Clash Lane",
     combo:[51],//刘邦
     beCountered:[42],//被扁鹊克
-
+    counter:[38]
   },
   {
     id: 71,
@@ -760,7 +767,7 @@ const HeroList = [
     altOccupation: "",
     combo:[50], //张良
     counter:[25,65],//扁鹊
-    beCountered:[36,67,92]//韩信,木兰，鱼
+    beCountered:[36,67,92,78]//韩信,木兰，鱼
   },
   {
     id: 75,
@@ -803,6 +810,8 @@ const HeroList = [
     imageLink: "/commons/images/d/d9/Sun_Bin_Hero_Icon.png",
     occupation: "Roaming",
     altOccupation: "",
+    counter:[74,92,3],
+    beCountered:[30],
     combo:[25,26,9,7]//扁鹊，夏侯,猪八戒
   },
   {
