@@ -89,7 +89,7 @@ const HeroList = [
     occupation: "Jungling",
     altOccupation: 'Clash Lane',
     counter:[10],
-    beCountered:[59,38,1],//不知火舞,宫本
+    beCountered:[59,1,68],//不知火舞,宫本
     combo:[91]//周瑜
   },
   {
