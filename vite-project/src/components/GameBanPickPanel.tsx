@@ -156,13 +156,39 @@ const GameBanPickPanel = ({ phases }: { phases: Phase[] }) => {
       enemyBeCountered: []
     };
 
+    const addedCombos = new Set<number>();
+    const addedCounters = new Set<number>();
+    const addedBeCountered = new Set<number>();
+    const addedEnemyBeCountered = new Set<number>();
+
     // 处理当前队伍的英雄推荐
     currentTeamPicks.forEach(heroId => {
       const hero = getHeroById(heroId);
       if (hero) {
-        if (hero.combo) recommendations.combos.push(...hero.combo.filter(id => !bannedHeroes.includes(id)));
-        if (hero.counter) recommendations.counters.push(...hero.counter.filter(id => !bannedHeroes.includes(id)));
-        if (hero.beCountered) recommendations.beCountered.push(...hero.beCountered.filter(id => !bannedHeroes.includes(id)));
+        if (hero.combo) {
+          hero.combo.forEach(id => {
+            if (!bannedHeroes.includes(id) && !addedCombos.has(id)) {
+              recommendations.combos.push(id);
+              addedCombos.add(id);
+            }
+          });
+        }
+        if (hero.counter) {
+          hero.counter.forEach(id => {
+            if (!bannedHeroes.includes(id) && !addedCounters.has(id)) {
+              recommendations.counters.push(id);
+              addedCounters.add(id);
+            }
+          });
+        }
+        if (hero.beCountered) {
+          hero.beCountered.forEach(id => {
+            if (!bannedHeroes.includes(id) && !addedBeCountered.has(id)) {
+              recommendations.beCountered.push(id);
+              addedBeCountered.add(id);
+            }
+          });
+        }
       }
     });
 
@@ -170,7 +196,12 @@ const GameBanPickPanel = ({ phases }: { phases: Phase[] }) => {
     enemyTeamPicks.forEach(heroId => {
       const hero = getHeroById(heroId);
       if (hero && hero.beCountered) {
-        recommendations.enemyBeCountered.push(...hero.beCountered.filter(id => !bannedHeroes.includes(id)));
+        hero.beCountered.forEach(id => {
+          if (!bannedHeroes.includes(id) && !addedEnemyBeCountered.has(id)) {
+            recommendations.enemyBeCountered.push(id);
+            addedEnemyBeCountered.add(id);
+          }
+        });
       }
     });
 
