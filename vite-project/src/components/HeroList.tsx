@@ -799,7 +799,7 @@ const HeroList = [
     occupation: "Jungling",
     altOccupation: "",
     combo:[35,90],
-    counter:[35],
+    counter:[35,96],
     beCountered:[90]
 
   },
@@ -991,6 +991,17 @@ const HeroList = [
     combo:[],
     counter:[66,30],
     beCountered:[92,41]
+  },
+  {
+    id: 96,
+    englishName: "Mi Yue",
+    chineseName: "芈月",
+    imageLink: "/commons/images/3/33/Jiang_Ziya_Hero_Icon_2022.jpg",
+    occupation: "Clash Lane",
+    altOccupation: "Jungling",
+    combo:[],
+    counter:[70],
+    beCountered:[34,77]
   }
 ];
 export default HeroList;
